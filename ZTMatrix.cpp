@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-#include <math.h> 
+#include <math.h>
 #include <cmath>
 #include <vector>
 #include <cstdlib>
@@ -46,15 +46,15 @@ ZTMatrix<T>::ZTMatrix(std::size_t rows, std::size_t cols, const T& elements) : m
 
 template<typename T>
 ZTMatrix<T>::ZTMatrix(const ZTMatrix<T>& cp) :
-matrix_rows(cp.matrix_rows),
-matrix_cols(cp.matrix_cols),
-matrix_data(cp.matrix_data) {
+                                               matrix_rows(cp.matrix_rows),
+                                               matrix_cols(cp.matrix_cols),
+                                               matrix_data(cp.matrix_data)
+{
 
 }
 
 template<typename T>
-ZTMatrix<T>::~ZTMatrix() {
-}
+ZTMatrix<T>::~ZTMatrix() {}
 
 template<typename T>
 ZTMatrix<T> ZTMatrix<T>::add(const T& scalar) {
