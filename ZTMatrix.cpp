@@ -313,7 +313,8 @@ inline ZTMatrix<T>& ZTMatrix<T>::operator*=(const ZTMatrix<T>& m) {
 
 template <typename T>
 inline ZTMatrix<T>& ZTMatrix<T>::operator=(const ZTMatrix<T>& m) {
-    if (&m != this) {
+    if (&m != this)
+    {
         matrix_data = m.matrix_data;
         matrix_rows = m.matrix_rows;
         matrix_cols = m.matrix_cols;

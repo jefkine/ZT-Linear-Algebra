@@ -49,13 +49,13 @@ ZTVector<T>::~ZTVector() {}
 template<typename T>
 std::vector<T> ZTVector<T>::get_vector_data()
 {
-       return vector_data;
+    return vector_data;
 }
 
 template<typename T>
 void ZTVector<T>::set_vector_data(const std::vector<T>& v)
 {
-       vector_data = v;
+    vector_data = v;
 }
 
 template<typename T>
@@ -149,7 +149,7 @@ inline std::vector<T> ZTVector<T>::operator-(const T& scalar)
 template <typename T>
 inline ZTVector<T>& ZTVector<T>::operator-=(const T& scalar)
 {
-   return ZTVector<T>::cummulative_subtract(scalar);
+    return ZTVector<T>::cummulative_subtract(scalar);
 }
 
 template<typename T>
@@ -171,7 +171,7 @@ ZTVector<T>& ZTVector<T>::cummulative_multiply(const T& scalar) {
     {
         vector_data[i] *= scalar;
     }
-     return *this;
+    return *this;
 
 }
 
@@ -184,7 +184,7 @@ inline T ZTVector<T>::operator*(const T& scalar)
 template <typename T>
 inline ZTVector<T>& ZTVector<T>::operator*=(const T& scalar)
 {
-   return ZTVector<T>::cummulative_multiply(scalar);
+    return ZTVector<T>::cummulative_multiply(scalar);
 }
 
 template<typename T>
@@ -284,13 +284,13 @@ ZTVector<T>& ZTVector<T>::cummulative_subtract(const std::vector<T>& v) {
 template <typename T>
 inline std::vector<T> ZTVector<T>::operator-(const std::vector<T>& v)
 {
-   return ZTVector<T>::subtract(v);
+    return ZTVector<T>::subtract(v);
 }
 
 template <typename T>
 inline ZTVector<T>& ZTVector<T>::operator-=(const std::vector<T>& v)
 {
-   return ZTVector<T>::cummulative_add(v);
+    return ZTVector<T>::cummulative_add(v);
 }
 
 template<typename T>
