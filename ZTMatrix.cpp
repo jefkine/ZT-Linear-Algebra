@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/*
- * File:   ZTMatrix.cpp
- * Author: jefkine
- *
- * Created on July 6, 2018, 12:44 AM
- */
-
 #include <math.h> 
 #include <cmath>
 #include <vector>
@@ -419,26 +412,26 @@ T ZTMatrix<T>::trace(const ZTMatrix<T>& m) {
 template<typename T>
 T ZTMatrix<T>::norm() {
      T result = 0;
-     for (std::size_t i = 0; i < matrix_rows; ++i) 
+     for (std::size_t i = 0; i < matrix_rows; ++i)
      {
         for (std::size_t j = 0; j < matrix_cols; ++j)
         {
             result += std::pow(matrix_data[i][j], 2);
         }
-    }     
+    }
      return std::sqrt(result);
 }
 
 template<typename T>
 T ZTMatrix<T>::norm(const ZTMatrix<T>& m) {
      T result = 0;
-     for (std::size_t i = 0; i < m.matrix_rows; ++i) 
+     for (std::size_t i = 0; i < m.matrix_rows; ++i)
      {
         for (std::size_t j = 0; j < m.matrix_cols; ++j)
         {
             result += std::pow(m.matrix_data[i][j], 2);
         }
-    }     
+    }
      return std::sqrt(result);
 }
 

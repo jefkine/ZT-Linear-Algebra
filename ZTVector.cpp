@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/*
- * File:   ZTVector.cpp
- * Author: jefkine
- *
- * Created on July 5, 2018, 3:26 AM
- */
-
 #include <cmath>
 #include <vector>
 #include <cstdlib>
@@ -106,7 +99,7 @@ ZTVector<T>& ZTVector<T>::cummulative_add(const T& scalar) {
     {
         vector_data[i] += scalar;
     }
-    
+
     return *this;
 
 }
@@ -142,7 +135,7 @@ ZTVector<T>& ZTVector<T>::cummulative_subtract(const T& scalar) {
     {
         vector_data[i] -= scalar;
     }
-    
+
     return *this;
 
 }
@@ -179,7 +172,7 @@ ZTVector<T>& ZTVector<T>::cummulative_multiply(const T& scalar) {
         vector_data[i] *= scalar;
     }
      return *this;
-     
+
 }
 
 template <typename T>

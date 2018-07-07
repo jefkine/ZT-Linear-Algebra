@@ -22,12 +22,6 @@
  * THE SOFTWARE.
  */
 
-/*
- * File:   main.cpp
- * Author: jefkine
- *
- */
-
 #include "ZTVector.cpp"
 #include "ZTMatrix.cpp"
 

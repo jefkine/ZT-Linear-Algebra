@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/*
- * File:   ZTMatrix.h
- * Author: jefkine
- *
- * Created on July 6, 2018, 12:43 AM
- */
-
 #ifndef ZTMATRIX_H
 #define ZTMATRIX_H
 
@@ -85,7 +78,7 @@ public:
 
     T trace();
     T trace(const ZTMatrix<T>& m);
-    
+
     T norm();
     T norm(const ZTMatrix<T>& m);
 

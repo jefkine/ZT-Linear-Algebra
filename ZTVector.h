@@ -22,13 +22,6 @@
  * THE SOFTWARE.
  */
 
-/*
- * File:   ZTVector.h
- * Author: jefkine
- *
- * Created on July 5, 2018, 3:26 AM
- */
-
 #ifndef ZTVECTOR_H
 #define ZTVECTOR_H
 
