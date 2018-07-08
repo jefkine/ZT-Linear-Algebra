@@ -30,7 +30,7 @@ int main() {
     std::vector<double> v1 = {1.0,2.0,3.0};
     std::vector<double> v2 = {5.0,5.0,5.0};
 
-    ZTVector<double> vec(v1);
+    ZTVector<double> vec(v1);  // changes
 
     ZTMatrix<double> mat(3, 5, 2.2);
     ZTMatrix<double> res(3, 3, 2.0);
