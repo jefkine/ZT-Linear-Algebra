@@ -70,7 +70,7 @@ target/
 .project
 
 # NetBeans specific
-nbproject/private/
+nbproject/
 build/
 nbbuild/
 dist/
@@ -78,6 +78,9 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 
+# Makefile specific
+Makefile
+.dep.inc
 
 # OS
 .DS_Store
