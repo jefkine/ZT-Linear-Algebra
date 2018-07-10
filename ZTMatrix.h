@@ -40,19 +40,19 @@ public:
     virtual ~ZTMatrix();
 
     ZTMatrix<T> add(const T& scalar);
-    ZTMatrix<T> subtract(const T& scalar);
+    ZTMatrix<T> minus(const T& scalar);
     ZTMatrix<T> multiply(const T& scalar);
 
     ZTMatrix<T>& cummulative_add(const T& scalar);
-    ZTMatrix<T>& cummulative_subtract(const T& scalar);
+    ZTMatrix<T>& cummulative_minus(const T& scalar);
     ZTMatrix<T>& cummulative_multiply(const T& scalar);
 
     ZTMatrix<T> add(const ZTMatrix& m);
-    ZTMatrix<T> subtract(const ZTMatrix& m);
+    ZTMatrix<T> minus(const ZTMatrix& m);
     ZTMatrix<T> multiply(const ZTMatrix& m);
 
     ZTMatrix<T>& cummulative_add(const ZTMatrix& m);
-    ZTMatrix<T>& cummulative_subtract(const ZTMatrix& m);
+    ZTMatrix<T>& cummulative_minus(const ZTMatrix& m);
     ZTMatrix<T>& cummulative_multiply(const ZTMatrix& m);
 
     ZTMatrix<T> operator +(const T& scalar);

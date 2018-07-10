@@ -68,7 +68,7 @@ ZTMatrix<T> ZTMatrix<T>::add(const T& scalar) {
 }
 
 template<typename T>
-ZTMatrix<T> ZTMatrix<T>::subtract(const T& scalar) {
+ZTMatrix<T> ZTMatrix<T>::minus(const T& scalar) {
     ZTMatrix result(matrix_rows, matrix_cols, 0.0);
     for (std::size_t i = 0; i < matrix_rows; ++i) {
         for (std::size_t j = 0; j < matrix_cols; ++j) {
@@ -101,7 +101,7 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_add(const T& scalar) {
 }
 
 template<typename T>
-ZTMatrix<T>& ZTMatrix<T>::cummulative_subtract(const T& scalar) {
+ZTMatrix<T>& ZTMatrix<T>::cummulative_minus(const T& scalar) {
     for (std::size_t i = 0; i < matrix_rows; ++i) {
         for (std::size_t j = 0; j < matrix_cols; ++j) {
             matrix_data[i][j] -= scalar;
@@ -143,7 +143,7 @@ ZTMatrix<T> ZTMatrix<T>::add(const ZTMatrix<T>& m) {
 }
 
 template<typename T>
-ZTMatrix<T> ZTMatrix<T>::subtract(const ZTMatrix<T>& m) {
+ZTMatrix<T> ZTMatrix<T>::minus(const ZTMatrix<T>& m) {
 
   try
   {
@@ -210,7 +210,7 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_add(const ZTMatrix<T>& m) {
 }
 
 template<typename T>
-ZTMatrix<T>& ZTMatrix<T>::cummulative_subtract(const ZTMatrix<T>& m) {
+ZTMatrix<T>& ZTMatrix<T>::cummulative_minus(const ZTMatrix<T>& m) {
 
   try
   {
@@ -258,7 +258,7 @@ inline ZTMatrix<T> ZTMatrix<T>::operator+(const T& scalar) {
 
 template <typename T>
 inline ZTMatrix<T> ZTMatrix<T>::operator-(const T& scalar) {
-    return ZTMatrix<T>::subtract(scalar);
+    return ZTMatrix<T>::minus(scalar);
 }
 
 template <typename T>
@@ -273,7 +273,7 @@ inline ZTMatrix<T>& ZTMatrix<T>::operator+=(const T& scalar) {
 
 template <typename T>
 inline ZTMatrix<T>& ZTMatrix<T>::operator-=(const T& scalar) {
-    return ZTMatrix<T>::cummulative_subtract(scalar);
+    return ZTMatrix<T>::cummulative_minus(scalar);
 }
 
 template <typename T>
@@ -288,7 +288,7 @@ inline ZTMatrix<T> ZTMatrix<T>::operator+(const ZTMatrix<T>& m) {
 
 template <typename T>
 inline ZTMatrix<T> ZTMatrix<T>::operator-(const ZTMatrix<T>& m) {
-    return ZTMatrix<T>::subtract(m);
+    return ZTMatrix<T>::minus(m);
 }
 
 template <typename T>
@@ -303,7 +303,7 @@ inline ZTMatrix<T>& ZTMatrix<T>::operator+=(const ZTMatrix<T>& m) {
 
 template <typename T>
 inline ZTMatrix<T>& ZTMatrix<T>::operator-=(const ZTMatrix<T>& m) {
-    return ZTMatrix<T>::cummulative_subtract(m);
+    return ZTMatrix<T>::cummulative_minus(m);
 }
 
 template <typename T>
