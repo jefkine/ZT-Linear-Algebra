@@ -82,7 +82,7 @@ template<typename T>
 ZTMatrix<T>::~ZTMatrix() {}
 
 /**
- * add : perfoms matrix to scalar addition
+ * add : performs matrix to scalar addition
  *
  * @param  T& scalar
  * @return std::vector<std::vector<T>> result
@@ -100,7 +100,7 @@ ZTMatrix<T> ZTMatrix<T>::add(const T& scalar) {
 }
 
 /**
- * minus : perfoms matrix to scalar subtraction
+ * minus : performs matrix to scalar subtraction
  *
  * @param  T& scalar
  * @return std::vector<std::vector<T>> result
@@ -118,7 +118,7 @@ ZTMatrix<T> ZTMatrix<T>::minus(const T& scalar) {
 }
 
 /**
- * multiply : perfoms matrix to multiplication
+ * multiply : performs matrix to multiplication
  *
  * @param  T& scalar
  * @return std::vector<std::vector<T>> result
@@ -136,7 +136,7 @@ ZTMatrix<T> ZTMatrix<T>::multiply(const T& scalar) {
 }
 
 /**
- * cummulative_add : perfoms matrix to scalar cummulative add
+ * cummulative_add : performs matrix to scalar cummulative add
  *
  * @param  T& scalar
  * @return *this (instance of ZTMatrix<T>)
@@ -154,7 +154,7 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_add(const T& scalar) {
 }
 
 /**
- * cummulative_minus : perfoms matrix to scalar cummulative subtraction
+ * cummulative_minus : performs matrix to scalar cummulative subtraction
  *
  * @param  T& scalar
  * @return *this (instance of ZTMatrix<T>)
@@ -172,7 +172,7 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_minus(const T& scalar) {
 }
 
 /**
- * cummulative_multiply : perfoms matrix to scalar cummulative multiplication
+ * cummulative_multiply : performs matrix to scalar cummulative multiplication
  *
  * @param  T& scalar
  * @return *this (instance of ZTMatrix<T>)
@@ -190,7 +190,7 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_multiply(const T& scalar) {
 }
 
 /**
- * add : perfoms matrix to matrix addition
+ * add : performs matrix to matrix addition
  *
  * @param  ZTMatrix<T> m
  * @return std::vector<std::vector<T>> result
@@ -217,7 +217,7 @@ ZTMatrix<T> ZTMatrix<T>::add(const ZTMatrix<T>& m) {
 }
 
 /**
- * minus : perfoms matrix to matrix subtraction
+ * minus : performs matrix to matrix subtraction
  *
  * @param  ZTMatrix<T> m
  * @return std::vector<std::vector<T>> result
@@ -246,7 +246,7 @@ ZTMatrix<T> ZTMatrix<T>::minus(const ZTMatrix<T>& m) {
 }
 
 /**
- * multiply : perfoms matrix to matrix multiplication
+ * multiply : performs matrix to matrix multiplication
  *
  * @param  ZTMatrix<T> m
  * @return std::vector<std::vector<T>> result
@@ -277,7 +277,7 @@ ZTMatrix<T> ZTMatrix<T>::multiply(const ZTMatrix<T>& m) {
 }
 
 /**
- * cummulative_add : perfoms matrix to matrix cummulative addition
+ * cummulative_add : performs matrix to matrix cummulative addition
  *
  * @param  ZTMatrix<T>& m
  * @return *this (instance of ZTMatrix<T>)
@@ -305,7 +305,7 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_add(const ZTMatrix<T>& m) {
 }
 
 /**
- * cummulative_minus : perfoms matrix to matrix cummulative subtraction
+ * cummulative_minus : performs matrix to matrix cummulative subtraction
  *
  * @param  ZTMatrix<T>& m
  * @return *this (instance of ZTMatrix<T>)
@@ -333,7 +333,7 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_minus(const ZTMatrix<T>& m) {
 }
 
 /**
- * cummulative_minus : perfoms matrix to matrix cummulative multiplication
+ * cummulative_minus : performs matrix to matrix cummulative multiplication
  *
  * @param  ZTMatrix<T>& m
  * @return *this (instance of ZTMatrix<T>)
@@ -361,7 +361,7 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_multiply(const ZTMatrix<T>& m) {
 }
 
 /**
- * inline + operator : perfoms matrix to scalar addition
+ * inline + operator : performs matrix to scalar addition
  *
  * @param  T& scalar
  *
@@ -372,7 +372,7 @@ inline ZTMatrix<T> ZTMatrix<T>::operator+(const T& scalar) {
 }
 
 /**
- * inline - operator : perfoms matrix to scalar subtraction
+ * inline - operator : performs matrix to scalar subtraction
  *
  * @param  T& scalar
  *
@@ -383,7 +383,7 @@ inline ZTMatrix<T> ZTMatrix<T>::operator-(const T& scalar) {
 }
 
 /**
- * inline * operator : perfoms matrix to scalar multiplication
+ * inline * operator : performs matrix to scalar multiplication
  *
  * @param  T& scalar
  *
@@ -394,7 +394,7 @@ inline ZTMatrix<T> ZTMatrix<T>::operator*(const T& scalar) {
 }
 
 /**
- * inline += operator : perfoms matrix to scalar cummulative addition
+ * inline += operator : performs matrix to scalar cummulative addition
  *
  * @param  T& scalar
  *
@@ -405,7 +405,7 @@ inline ZTMatrix<T>& ZTMatrix<T>::operator+=(const T& scalar) {
 }
 
 /**
- * inline -= operator : perfoms matrix to scalar cummulative subtraction
+ * inline -= operator : performs matrix to scalar cummulative subtraction
  *
  * @param  T& scalar
  *
@@ -416,7 +416,7 @@ inline ZTMatrix<T>& ZTMatrix<T>::operator-=(const T& scalar) {
 }
 
 /**
- * inline *= operator : perfoms matrix to scalar cummulative multiplication
+ * inline *= operator : performs matrix to scalar cummulative multiplication
  *
  * @param  T& scalar
  *
@@ -427,7 +427,7 @@ ZTMatrix<T>& ZTMatrix<T>::operator*=(const T& scalar) {
 }
 
 /**
- * inline + operator : perfoms matrix to matrix addition
+ * inline + operator : performs matrix to matrix addition
  *
  * @param  ZTMatrix<T> m
  *
@@ -438,7 +438,7 @@ inline ZTMatrix<T> ZTMatrix<T>::operator+(const ZTMatrix<T>& m) {
 }
 
 /**
- * inline - operator : perfoms matrix to matrix subtraction
+ * inline - operator : performs matrix to matrix subtraction
  *
  * @param  ZTMatrix<T> m
  *
@@ -449,7 +449,7 @@ inline ZTMatrix<T> ZTMatrix<T>::operator-(const ZTMatrix<T>& m) {
 }
 
 /**
- * inline * operator : perfoms matrix to matrix multiplication
+ * inline * operator : performs matrix to matrix multiplication
  *
  * @param  ZTMatrix<T> m
  *
@@ -460,7 +460,7 @@ inline ZTMatrix<T> ZTMatrix<T>::operator*(const ZTMatrix<T>& m) {
 }
 
 /**
- * inline += operator : perfoms matrix to matrix cummulative addition
+ * inline += operator : performs matrix to matrix cummulative addition
  *
  * @param  ZTMatrix<T> m
  *
@@ -471,7 +471,7 @@ inline ZTMatrix<T>& ZTMatrix<T>::operator+=(const ZTMatrix<T>& m) {
 }
 
 /**
- * inline -= operator : perfoms matrix to matrix cummulative subtraction
+ * inline -= operator : performs matrix to matrix cummulative subtraction
  *
  * @param  ZTMatrix<T> m
  *
@@ -482,7 +482,7 @@ inline ZTMatrix<T>& ZTMatrix<T>::operator-=(const ZTMatrix<T>& m) {
 }
 
 /**
- * inline *= operator : perfoms matrix to matrix cummulative multiplication
+ * inline *= operator : performs matrix to matrix cummulative multiplication
  *
  * @param  ZTMatrix<T> m
  *
@@ -493,7 +493,7 @@ inline ZTMatrix<T>& ZTMatrix<T>::operator*=(const ZTMatrix<T>& m) {
 }
 
 /**
- * assignment operator : perfoms assignment of the given matrix to the instance one
+ * assignment operator : performs assignment of the given matrix to the instance one
  *
  * @param  ZTMatrix<T> m
  * @return *this (instance of ZTVector<T>)
@@ -597,7 +597,7 @@ inline void ZTMatrix<T>::valid_sqaure_matrix(std::size_t row_size, std::size_t c
 }
 
 /**
- * trace : perfoms matrix to matrix trace operation
+ * trace : performs matrix to matrix trace operation
  *
  * @param  nothing
  * @return T result
@@ -623,7 +623,7 @@ T ZTMatrix<T>::trace() {
 }
 
 /**
- * trace : perfoms matrix to matrix trace operation
+ * trace : performs matrix to matrix trace operation
  *
  * @param  ZTMatrix<T> m
  * @return T result
@@ -649,7 +649,7 @@ T ZTMatrix<T>::trace(const ZTMatrix<T>& m) {
 }
 
 /**
- * norm : perfoms matrix to matrix norm operation
+ * norm : performs matrix to matrix norm operation
  *
  * @param  nothing
  * @return T result
@@ -669,7 +669,7 @@ T ZTMatrix<T>::norm() {
 }
 
 /**
- * norm : perfoms matrix to matrix norm operation
+ * norm : performs matrix to matrix norm operation
  *
  * @param  ZTMatrix<T> m
  * @return T result

@@ -112,7 +112,7 @@ void ZTVector<T>::valid_vector_dimensions(const std::vector<T>& v)
 }
 
 /**
- * assignment operator : perfoms assignment of the given vector to the instance one
+ * assignment operator : performs assignment of the given vector to the instance one
  *
  * @param  ZTVector<T> v
  * @return *this (instance of ZTVector<T>)
@@ -130,7 +130,7 @@ ZTVector<T>& ZTVector<T>::operator=(const ZTVector<T>& v) {
 }
 
 /**
- * add : perfoms vector to scalar addition
+ * add : performs vector to scalar addition
  *
  * @param  T& scalar
  * @return std::vector<T> result
@@ -149,7 +149,7 @@ std::vector<T> ZTVector<T>::add(const T& scalar) {
 }
 
 /**
- * cummulative_add : perfoms vector to scalar cummulative addition
+ * cummulative_add : performs vector to scalar cummulative addition
  *
  * @param  T& scalar
  * @return *this (instance of ZTVector<T>)
@@ -168,7 +168,7 @@ ZTVector<T>& ZTVector<T>::cummulative_add(const T& scalar) {
 }
 
 /**
- * inline + operator : perfoms vector to scalar addition
+ * inline + operator : performs vector to scalar addition
  *
  * @param  T& scalar
  *
@@ -180,7 +180,7 @@ inline std::vector<T> ZTVector<T>::operator+(const T& scalar)
 }
 
 /**
- * inline += operator : perfoms vector to scalar cummulative addition
+ * inline += operator : performs vector to scalar cummulative addition
  *
  * @param  T& scalar
  *
@@ -192,7 +192,7 @@ inline ZTVector<T> &ZTVector<T>::operator+=(const T &scalar)
 }
 
 /**
- * minus : perfoms vector to scalar minus
+ * minus : performs vector to scalar minus
  *
  * @param  T& scalar
  * @return std::vector<T> result
@@ -211,7 +211,7 @@ std::vector<T> ZTVector<T>::minus(const T& scalar) {
 }
 
 /**
- * cummulative_minus : perfoms vector to scalar cummulative minus
+ * cummulative_minus : performs vector to scalar cummulative minus
  *
  * @param  T& scalar
  * @return *this (instance of ZTVector<T>)
@@ -230,7 +230,7 @@ ZTVector<T>& ZTVector<T>::cummulative_minus(const T& scalar) {
 }
 
 /**
- * inline - operator : perfoms vector to scalar minus
+ * inline - operator : performs vector to scalar minus
  *
  * @param  T& scalar
  *
@@ -242,7 +242,7 @@ inline std::vector<T> ZTVector<T>::operator-(const T& scalar)
 }
 
 /**
- * inline -= operator : perfoms vector to scalar cummulative minus
+ * inline -= operator : performs vector to scalar cummulative minus
  *
  * @param  T& scalar
  *
@@ -254,7 +254,7 @@ inline ZTVector<T>& ZTVector<T>::operator-=(const T& scalar)
 }
 
 /**
- * multiply : perfoms vector to scalar multiply
+ * multiply : performs vector to scalar multiply
  *
  * @param  T& scalar
  * @return std::vector<T> result
@@ -273,7 +273,7 @@ std::vector<T> ZTVector<T>::multiply(const T& scalar) {
 }
 
 /**
- * cummulative_multiply : perfoms cummulative vector to scalar multiplication
+ * cummulative_multiply : performs cummulative vector to scalar multiplication
  *
  * @param  T& scalar
  * @return *this (instance of ZTVector<T>)
@@ -291,7 +291,7 @@ ZTVector<T>& ZTVector<T>::cummulative_multiply(const T& scalar) {
 }
 
 /**
- * inline * operator : perfoms vector to scalar multiplication
+ * inline * operator : performs vector to scalar multiplication
  *
  * @param  T& scalar
  *
@@ -303,7 +303,7 @@ inline T ZTVector<T>::operator*(const T& scalar)
 }
 
 /**
- * inline *= operator : perfoms vector to scalar cummulative multiplication
+ * inline *= operator : performs vector to scalar cummulative multiplication
  *
  * @param  T& scalar
  *
@@ -315,7 +315,7 @@ inline ZTVector<T>& ZTVector<T>::operator*=(const T& scalar)
 }
 
 /**
- * add : perfoms vector to vector addition
+ * add : performs vector to vector addition
  *
  * @param  std::vector<T>& v
  * @return std::vector<T> result
@@ -343,7 +343,7 @@ std::vector<T> ZTVector<T>::add(const std::vector<T>& v) {
 }
 
 /**
- * cummulative_add : perfoms vector to vector cummulative addition
+ * cummulative_add : performs vector to vector cummulative addition
  *
  * @param  std::vector<T>& v
  * @return *this (instance of ZTVector<T>)
@@ -370,7 +370,7 @@ ZTVector<T>& ZTVector<T>::cummulative_add(const std::vector<T>& v) {
 }
 
 /**
- * inline + operator : perfoms vector to vector addition
+ * inline + operator : performs vector to vector addition
  *
  * @param  std::vector<T> v
  */
@@ -381,7 +381,7 @@ inline std::vector<T> ZTVector<T>::operator+(const std::vector<T>& v)
 }
 
 /**
- * inline += operator : perfoms vector to vector cummulative addition
+ * inline += operator : performs vector to vector cummulative addition
  *
  * @param  std::vector<T> v;
  *
@@ -393,7 +393,7 @@ inline ZTVector<T>& ZTVector<T>::operator+=(const std::vector<T>& v)
 }
 
 /**
- * minus : perfoms vector to scalar minus
+ * minus : performs vector to scalar minus
  *
  * @param  std::vector<T> v;
  * @return std::vector<T> result
@@ -421,7 +421,7 @@ std::vector<T> ZTVector<T>::minus(const std::vector<T>& v) {
 }
 
 /**
- * cummulative_minus : perfoms vector to vector cummulative minus
+ * cummulative_minus : performs vector to vector cummulative minus
  *
  * @param  std::vector<T>& v
  * @return *this (instance of ZTVector<T>)
@@ -448,7 +448,7 @@ ZTVector<T>& ZTVector<T>::cummulative_minus(const std::vector<T>& v) {
 }
 
 /**
- * inline - operator : perfoms vector to vector minus
+ * inline - operator : performs vector to vector minus
  *
  * @param  std::vector<T> v
  *
@@ -460,7 +460,7 @@ inline std::vector<T> ZTVector<T>::operator-(const std::vector<T>& v)
 }
 
 /**
- * inline -= operator : perfoms vector to vector cummulative minus
+ * inline -= operator : performs vector to vector cummulative minus
  *
  * @param  T& scalar
  *
@@ -472,7 +472,7 @@ inline ZTVector<T>& ZTVector<T>::operator-=(const std::vector<T>& v)
 }
 
 /**
- * multiply : perfoms vector to vector multiply
+ * multiply : performs vector to vector multiply
  *
  * @param  std::vector<T> v
  * @return std::vector<T> result
@@ -500,7 +500,7 @@ T ZTVector<T>::multiply(const std::vector<T>& v) {
 }
 
 /**
- * inline * operator : perfoms vector to vector multiplication
+ * inline * operator : performs vector to vector multiplication
  *
  * @param  std::vector<T> v
  *
@@ -512,7 +512,7 @@ inline T ZTVector<T>::operator*(const std::vector<T>& v)
 }
 
 /**
- * dot : perfoms vector to vector dot operation
+ * dot : performs vector to vector dot operation
  *
  * @param  std::vector<T> v
  * @return T result
@@ -536,7 +536,7 @@ T ZTVector<T>::dot(const std::vector<T>& v)
 }
 
 /**
- * norm : perfoms vector to vector norm operation
+ * norm : performs vector to vector norm operation
  *
  * @param  std::vector<T> v
  * @return T result
@@ -560,7 +560,7 @@ T ZTVector<T>::norm(const std::vector<T>& v)
 }
 
 /**
- * norm : perfoms vector to vector norm operation
+ * norm : performs vector to vector norm operation
  *
  * @param  std::vector<T> v
  * @return T result
