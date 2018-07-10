@@ -36,7 +36,7 @@
 #include "ZTMatrix.h"
 
 /**
- * Constructor: Constructs a Matrix of dimensions rows by cols whose elements are
+ * Constructor : Constructs a Matrix of dimensions rows by cols whose elements are
  *              initialized to the provided elements
  *
  * @param  std::size_t rows size for initialization
@@ -511,7 +511,7 @@ inline ZTMatrix<T>& ZTMatrix<T>::operator=(const ZTMatrix<T>& m) {
 }
 
 /**
- * valid_subscript_dimensions: checks for valid matrix subscript dimensions
+ * valid_subscript_dimensions : checks for valid matrix subscript dimensions
  *
  * @param  ZTMatrix<T> v
  * @return void
@@ -528,7 +528,7 @@ inline void ZTMatrix<T>::valid_subscript_dimensions(std::size_t row_index, std::
 }
 
 /**
- * valid_matrix_product: checks for dimensions valid matrix product
+ * valid_matrix_product : checks for dimensions valid matrix product
  *
  * @param  ZTMatrix<T> v
  * @return void
@@ -545,7 +545,7 @@ inline void ZTMatrix<T>::valid_matrix_product(const ZTMatrix<T> &m)  const{
 }
 
 /**
- * valid_matrix_add_minus: checks for dimensions valid matrix addition or subtraction
+ * valid_matrix_add_minus : checks for dimensions valid matrix addition or subtraction
  *
  * @param  ZTMatrix<T> v
  * @return void
@@ -562,7 +562,7 @@ inline void ZTMatrix<T>::valid_matrix_add_minus(const ZTMatrix<T>& m) const {
 }
 
 /**
- * valid_sqaure_matrix: checks for valid sqaure matrix dimensions
+ * valid_sqaure_matrix : checks for valid sqaure matrix dimensions
  *
  * @param  ZTMatrix<T> v
  * @return void
@@ -579,7 +579,7 @@ inline void ZTMatrix<T>::valid_sqaure_matrix(const ZTMatrix<T> &m)  const{
 }
 
 /**
- * valid_sqaure_matrix: checks for valid sqaure matrix dimensions
+ * valid_sqaure_matrix : checks for valid sqaure matrix dimensions
  *
  * @param  std::size_t row_size size for initialization
  * @param  std::size_t col_size size for initialization

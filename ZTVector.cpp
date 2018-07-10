@@ -34,7 +34,7 @@
 #include "ZTVector.h"
 
 /**
- * Constructor: Constructs a Vector whose elements are initialized to the provided vector
+ * Constructor : Constructs a Vector whose elements are initialized to the provided vector
  *
  * @param  std::std::vector<T> v vector for initialization
  * @return nothing
@@ -68,7 +68,7 @@ template<typename T>
 ZTVector<T>::~ZTVector() {}
 
 /**
- * Getter: Vector Class getter method
+ * Getter : Vector Class getter method
  *
  * @param  nothing
  * @return std::std::vector<T> vector_data
@@ -81,7 +81,7 @@ std::vector<T> ZTVector<T>::get_vector_data()
 }
 
 /**
- * Setter: Vector Class setter method
+ * Setter : Vector Class setter method
  *
  * @param  std::vector<T> v
  * @return nothing
@@ -94,7 +94,7 @@ void ZTVector<T>::set_vector_data(const std::vector<T>& v)
 }
 
 /**
- * valid_vector_dimensions: checks for valid vector dimesnions
+ * valid_vector_dimensions : checks for valid vector dimesnions
  *
  * @param  std::vector<T> v
  * @return void
