@@ -58,7 +58,7 @@ ZTMatrix<T>::ZTMatrix(std::size_t rows, std::size_t cols, const T& elements) : m
 /**
  * Copy Constructor
  *
- * @param  ZTMatrix<T> cp Matrixto be copied
+ * @param  ZTMatrix<T> cp Matrix to be copied
  * @return nothing
  *
  */
@@ -562,7 +562,7 @@ inline void ZTMatrix<T>::valid_matrix_add_minus(const ZTMatrix<T>& m) const {
 }
 
 /**
- * valid_sqaure_matrix: checks valid sqaure matrix dimensions
+ * valid_sqaure_matrix: checks for valid sqaure matrix dimensions
  *
  * @param  ZTMatrix<T> v
  * @return void
@@ -579,7 +579,7 @@ inline void ZTMatrix<T>::valid_sqaure_matrix(const ZTMatrix<T> &m)  const{
 }
 
 /**
- * valid_sqaure_matrix: checks valid sqaure matrix dimensions
+ * valid_sqaure_matrix: checks for valid sqaure matrix dimensions
  *
  * @param  std::size_t row_size size for initialization
  * @param  std::size_t col_size size for initialization
