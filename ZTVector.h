@@ -27,7 +27,8 @@
 
 #include <vector>
 
-template <typename T> class ZTVector {
+template <typename T>
+class ZTVector {
 
 private:
     std::vector<T> vector_data;
