@@ -42,19 +42,19 @@ public:
     void set_vector_data(const std::vector<T>& v);
 
     std::vector<T> add(const T& scalar);
-    std::vector<T> subtract(const T& scalar);
+    std::vector<T> minus(const T& scalar);
     std::vector<T> multiply(const T& scalar);
 
     ZTVector& cummulative_add(const T& scalar);
-    ZTVector& cummulative_subtract(const T& scalar);
+    ZTVector& cummulative_minus(const T& scalar);
     ZTVector& cummulative_multiply(const T& scalar);
 
     std::vector<T> add(const std::vector<T>& v);
-    std::vector<T> subtract(const std::vector<T>& v);
+    std::vector<T> minus(const std::vector<T>& v);
     T multiply(const std::vector<T>& v);
 
     ZTVector& cummulative_add(const std::vector<T>& v);
-    ZTVector& cummulative_subtract(const std::vector<T>& v);
+    ZTVector& cummulative_minus(const std::vector<T>& v);
 
     std::vector<T> operator +(const T& scalar);
     std::vector<T> operator -(const T& scalar);
