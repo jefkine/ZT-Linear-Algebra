@@ -28,8 +28,8 @@
 #include <sstream>
 #include <numeric>
 #include <iostream>
-#include <functional>
 #include <stdexcept>
+#include <functional>
 
 #include "ZTVector.h"
 
@@ -48,12 +48,12 @@ ZTVector<T>::ZTVector(const std::vector<T>& v) : vector_data(v) {
 /**
  * Copy Constructor
  *
- * @param  ZTVector<T> v vector for initialization
+ * @param  ZTVector<T> cp vector to be copied
  * @return nothing
  *
  */
 template<typename T>
-ZTVector<T>::ZTVector(const ZTVector<T>& p) : vector_data(p.vector_data) {
+ZTVector<T>::ZTVector(const ZTVector<T>& cp) : vector_data(cp.vector_data) {
 
 }
 
@@ -112,7 +112,7 @@ void ZTVector<T>::valid_vector_dimensions(const std::vector<T>& v)
 }
 
 /**
- * Assignment operator : perfoms assignment of the given vector to the instance one
+ * assignment operator : perfoms assignment of the given vector to the instance one
  *
  * @param  ZTVector<T> v
  * @return *this (instance of ZTVector<T>)

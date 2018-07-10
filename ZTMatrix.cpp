@@ -22,18 +22,29 @@
  * THE SOFTWARE.
  */
 
-#include <math.h>
+
 #include <cmath>
+#include <math.h>
 #include <vector>
 #include <cstdlib>
 #include <sstream>
 #include <numeric>
 #include <iostream>
-#include <functional>
 #include <stdexcept>
+#include <functional>
 
 #include "ZTMatrix.h"
 
+/**
+ * Constructor: Constructs a Matrix of dimensions rows by cols whose elements are
+ *              initialized to the provided elements
+ *
+ * @param  std::size_t rows size for initialization
+ * @param  std::size_t rows size for initialization
+ * @param  T& elements numeric for initialization
+ * @return nothing
+ *
+ */
 template <typename T>
 ZTMatrix<T>::ZTMatrix(std::size_t rows, std::size_t cols, const T& elements) : matrix_rows(rows), matrix_cols(cols) {
 
@@ -44,6 +55,13 @@ ZTMatrix<T>::ZTMatrix(std::size_t rows, std::size_t cols, const T& elements) : m
 
 }
 
+/**
+ * Copy Constructor
+ *
+ * @param  ZTMatrix<T> cp Matrixto be copied
+ * @return nothing
+ *
+ */
 template<typename T>
 ZTMatrix<T>::ZTMatrix(const ZTMatrix<T>& cp) :
                                                matrix_rows(cp.matrix_rows),
@@ -53,9 +71,23 @@ ZTMatrix<T>::ZTMatrix(const ZTMatrix<T>& cp) :
 
 }
 
+/**
+ * Destructor
+ *
+ * @param  nothing
+ * @return nothing
+ *
+ */
 template<typename T>
 ZTMatrix<T>::~ZTMatrix() {}
 
+/**
+ * add : perfoms matrix to scalar addition
+ *
+ * @param  T& scalar
+ * @return std::vector<std::vector<T>> result
+ *
+ */
 template<typename T>
 ZTMatrix<T> ZTMatrix<T>::add(const T& scalar) {
     ZTMatrix result(matrix_rows, matrix_cols, 0.0);
@@ -67,6 +99,13 @@ ZTMatrix<T> ZTMatrix<T>::add(const T& scalar) {
     return result;
 }
 
+/**
+ * minus : perfoms matrix to scalar subtraction
+ *
+ * @param  T& scalar
+ * @return std::vector<std::vector<T>> result
+ *
+ */
 template<typename T>
 ZTMatrix<T> ZTMatrix<T>::minus(const T& scalar) {
     ZTMatrix result(matrix_rows, matrix_cols, 0.0);
@@ -78,6 +117,13 @@ ZTMatrix<T> ZTMatrix<T>::minus(const T& scalar) {
     return result;
 }
 
+/**
+ * multiply : perfoms matrix to multiplication
+ *
+ * @param  T& scalar
+ * @return std::vector<std::vector<T>> result
+ *
+ */
 template<typename T>
 ZTMatrix<T> ZTMatrix<T>::multiply(const T& scalar) {
     ZTMatrix result(matrix_rows, matrix_cols, 0.0);
@@ -89,6 +135,13 @@ ZTMatrix<T> ZTMatrix<T>::multiply(const T& scalar) {
     return result;
 }
 
+/**
+ * cummulative_add : perfoms matrix to scalar cummulative add
+ *
+ * @param  T& scalar
+ * @return *this (instance of ZTMatrix<T>)
+ *
+ */
 template<typename T>
 ZTMatrix<T>& ZTMatrix<T>::cummulative_add(const T& scalar) {
     for (std::size_t i = 0; i < matrix_rows; ++i) {
@@ -100,6 +153,13 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_add(const T& scalar) {
     return *this;
 }
 
+/**
+ * cummulative_minus : perfoms matrix to scalar cummulative subtraction
+ *
+ * @param  T& scalar
+ * @return *this (instance of ZTMatrix<T>)
+ *
+ */
 template<typename T>
 ZTMatrix<T>& ZTMatrix<T>::cummulative_minus(const T& scalar) {
     for (std::size_t i = 0; i < matrix_rows; ++i) {
@@ -111,6 +171,13 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_minus(const T& scalar) {
     return *this;
 }
 
+/**
+ * cummulative_multiply : perfoms matrix to scalar cummulative multiplication
+ *
+ * @param  T& scalar
+ * @return *this (instance of ZTMatrix<T>)
+ *
+ */
 template<typename T>
 ZTMatrix<T>& ZTMatrix<T>::cummulative_multiply(const T& scalar) {
     for (std::size_t i = 0; i < matrix_rows; ++i) {
@@ -122,6 +189,13 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_multiply(const T& scalar) {
     return *this;
 }
 
+/**
+ * add : perfoms matrix to matrix addition
+ *
+ * @param  ZTMatrix<T> m
+ * @return std::vector<std::vector<T>> result
+ *
+ */
 template<typename T>
 ZTMatrix<T> ZTMatrix<T>::add(const ZTMatrix<T>& m) {
   try
@@ -142,6 +216,13 @@ ZTMatrix<T> ZTMatrix<T>::add(const ZTMatrix<T>& m) {
   }
 }
 
+/**
+ * minus : perfoms matrix to matrix subtraction
+ *
+ * @param  ZTMatrix<T> m
+ * @return std::vector<std::vector<T>> result
+ *
+ */
 template<typename T>
 ZTMatrix<T> ZTMatrix<T>::minus(const ZTMatrix<T>& m) {
 
@@ -164,6 +245,13 @@ ZTMatrix<T> ZTMatrix<T>::minus(const ZTMatrix<T>& m) {
 
 }
 
+/**
+ * multiply : perfoms matrix to matrix multiplication
+ *
+ * @param  ZTMatrix<T> m
+ * @return std::vector<std::vector<T>> result
+ *
+ */
 template<typename T>
 ZTMatrix<T> ZTMatrix<T>::multiply(const ZTMatrix<T>& m) {
 
@@ -188,6 +276,13 @@ ZTMatrix<T> ZTMatrix<T>::multiply(const ZTMatrix<T>& m) {
 
 }
 
+/**
+ * cummulative_add : perfoms matrix to matrix cummulative addition
+ *
+ * @param  ZTMatrix<T>& m
+ * @return *this (instance of ZTMatrix<T>)
+ *
+ */
 template<typename T>
 ZTMatrix<T>& ZTMatrix<T>::cummulative_add(const ZTMatrix<T>& m) {
 
@@ -209,6 +304,13 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_add(const ZTMatrix<T>& m) {
 
 }
 
+/**
+ * cummulative_minus : perfoms matrix to matrix cummulative subtraction
+ *
+ * @param  ZTMatrix<T>& m
+ * @return *this (instance of ZTMatrix<T>)
+ *
+ */
 template<typename T>
 ZTMatrix<T>& ZTMatrix<T>::cummulative_minus(const ZTMatrix<T>& m) {
 
@@ -230,6 +332,13 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_minus(const ZTMatrix<T>& m) {
 
 }
 
+/**
+ * cummulative_minus : perfoms matrix to matrix cummulative multiplication
+ *
+ * @param  ZTMatrix<T>& m
+ * @return *this (instance of ZTMatrix<T>)
+ *
+ */
 template<typename T>
 ZTMatrix<T>& ZTMatrix<T>::cummulative_multiply(const ZTMatrix<T>& m) {
 
@@ -251,66 +360,145 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_multiply(const ZTMatrix<T>& m) {
 
 }
 
+/**
+ * inline + operator : perfoms matrix to scalar addition
+ *
+ * @param  T& scalar
+ *
+ */
 template <typename T>
 inline ZTMatrix<T> ZTMatrix<T>::operator+(const T& scalar) {
     return ZTMatrix<T>::add(scalar);
 }
 
+/**
+ * inline - operator : perfoms matrix to scalar subtraction
+ *
+ * @param  T& scalar
+ *
+ */
 template <typename T>
 inline ZTMatrix<T> ZTMatrix<T>::operator-(const T& scalar) {
     return ZTMatrix<T>::minus(scalar);
 }
 
+/**
+ * inline * operator : perfoms matrix to scalar multiplication
+ *
+ * @param  T& scalar
+ *
+ */
 template <typename T>
 inline ZTMatrix<T> ZTMatrix<T>::operator*(const T& scalar) {
     return ZTMatrix<T>::multiply(scalar);
 }
 
+/**
+ * inline += operator : perfoms matrix to scalar cummulative addition
+ *
+ * @param  T& scalar
+ *
+ */
 template <typename T>
 inline ZTMatrix<T>& ZTMatrix<T>::operator+=(const T& scalar) {
     return ZTMatrix<T>::cummulative_add(scalar);
 }
 
+/**
+ * inline -= operator : perfoms matrix to scalar cummulative subtraction
+ *
+ * @param  T& scalar
+ *
+ */
 template <typename T>
 inline ZTMatrix<T>& ZTMatrix<T>::operator-=(const T& scalar) {
     return ZTMatrix<T>::cummulative_minus(scalar);
 }
 
+/**
+ * inline *= operator : perfoms matrix to scalar cummulative multiplication
+ *
+ * @param  T& scalar
+ *
+ */
 template <typename T>
 ZTMatrix<T>& ZTMatrix<T>::operator*=(const T& scalar) {
     return ZTMatrix<T>::cummulative_multiply(scalar);
 }
 
+/**
+ * inline + operator : perfoms matrix to matrix addition
+ *
+ * @param  ZTMatrix<T> m
+ *
+ */
 template <typename T>
 inline ZTMatrix<T> ZTMatrix<T>::operator+(const ZTMatrix<T>& m) {
     return ZTMatrix<T>::add(m);
 }
 
+/**
+ * inline - operator : perfoms matrix to matrix subtraction
+ *
+ * @param  ZTMatrix<T> m
+ *
+ */
 template <typename T>
 inline ZTMatrix<T> ZTMatrix<T>::operator-(const ZTMatrix<T>& m) {
     return ZTMatrix<T>::minus(m);
 }
 
+/**
+ * inline * operator : perfoms matrix to matrix multiplication
+ *
+ * @param  ZTMatrix<T> m
+ *
+ */
 template <typename T>
 inline ZTMatrix<T> ZTMatrix<T>::operator*(const ZTMatrix<T>& m) {
     return ZTMatrix<T>::multiply(m);
 }
 
+/**
+ * inline += operator : perfoms matrix to matrix cummulative addition
+ *
+ * @param  ZTMatrix<T> m
+ *
+ */
 template <typename T>
 inline ZTMatrix<T>& ZTMatrix<T>::operator+=(const ZTMatrix<T>& m) {
     return ZTMatrix<T>::cummulative_add(m);
 }
 
+/**
+ * inline -= operator : perfoms matrix to matrix cummulative subtraction
+ *
+ * @param  ZTMatrix<T> m
+ *
+ */
 template <typename T>
 inline ZTMatrix<T>& ZTMatrix<T>::operator-=(const ZTMatrix<T>& m) {
     return ZTMatrix<T>::cummulative_minus(m);
 }
 
+/**
+ * inline *= operator : perfoms matrix to matrix cummulative multiplication
+ *
+ * @param  ZTMatrix<T> m
+ *
+ */
 template <typename T>
 inline ZTMatrix<T>& ZTMatrix<T>::operator*=(const ZTMatrix<T>& m) {
     return ZTMatrix<T>::cummulative_multiply(m);
 }
 
+/**
+ * assignment operator : perfoms assignment of the given matrix to the instance one
+ *
+ * @param  ZTMatrix<T> m
+ * @return *this (instance of ZTVector<T>)
+ *
+ */
 template <typename T>
 inline ZTMatrix<T>& ZTMatrix<T>::operator=(const ZTMatrix<T>& m) {
     if (&m != this)
@@ -322,6 +510,13 @@ inline ZTMatrix<T>& ZTMatrix<T>::operator=(const ZTMatrix<T>& m) {
     return *this;
 }
 
+/**
+ * valid_subscript_dimensions: checks for valid matrix subscript dimensions
+ *
+ * @param  ZTMatrix<T> v
+ * @return void
+ *
+ */
 template<typename T>
 inline void ZTMatrix<T>::valid_subscript_dimensions(std::size_t row_index, std::size_t col_index) const {
     if (row_index > matrix_rows || row_index < 1 || col_index > matrix_cols || col_index < 1)
@@ -332,6 +527,13 @@ inline void ZTMatrix<T>::valid_subscript_dimensions(std::size_t row_index, std::
     }
 }
 
+/**
+ * valid_matrix_product: checks for dimensions valid matrix product
+ *
+ * @param  ZTMatrix<T> v
+ * @return void
+ *
+ */
 template<typename T>
 inline void ZTMatrix<T>::valid_matrix_product(const ZTMatrix<T> &m)  const{
     if (matrix_cols != m.matrix_rows)
@@ -342,6 +544,13 @@ inline void ZTMatrix<T>::valid_matrix_product(const ZTMatrix<T> &m)  const{
     }
 }
 
+/**
+ * valid_matrix_add_minus: checks for dimensions valid matrix addition or subtraction
+ *
+ * @param  ZTMatrix<T> v
+ * @return void
+ *
+ */
 template<typename T>
 inline void ZTMatrix<T>::valid_matrix_add_minus(const ZTMatrix<T>& m) const {
     if (matrix_cols != m.matrix_cols && matrix_rows != m.matrix_rows)
@@ -352,6 +561,13 @@ inline void ZTMatrix<T>::valid_matrix_add_minus(const ZTMatrix<T>& m) const {
     }
 }
 
+/**
+ * valid_sqaure_matrix: checks valid sqaure matrix dimensions
+ *
+ * @param  ZTMatrix<T> v
+ * @return void
+ *
+ */
 template<typename T>
 inline void ZTMatrix<T>::valid_sqaure_matrix(const ZTMatrix<T> &m)  const{
     if (m.matrix_cols != m.matrix_rows)
@@ -362,6 +578,14 @@ inline void ZTMatrix<T>::valid_sqaure_matrix(const ZTMatrix<T> &m)  const{
     }
 }
 
+/**
+ * valid_sqaure_matrix: checks valid sqaure matrix dimensions
+ *
+ * @param  std::size_t row_size size for initialization
+ * @param  std::size_t col_size size for initialization
+ * @return void
+ *
+ */
 template<typename T>
 inline void ZTMatrix<T>::valid_sqaure_matrix(std::size_t row_size, std::size_t col_size)  const{
     if (row_size != col_size)
@@ -372,6 +596,13 @@ inline void ZTMatrix<T>::valid_sqaure_matrix(std::size_t row_size, std::size_t c
     }
 }
 
+/**
+ * trace : perfoms matrix to matrix trace operation
+ *
+ * @param  nothing
+ * @return T result
+ *
+ */
 template<typename T>
 T ZTMatrix<T>::trace() {
   try
@@ -391,6 +622,13 @@ T ZTMatrix<T>::trace() {
   }
 }
 
+/**
+ * trace : perfoms matrix to matrix trace operation
+ *
+ * @param  ZTMatrix<T> m
+ * @return T result
+ *
+ */
 template<typename T>
 T ZTMatrix<T>::trace(const ZTMatrix<T>& m) {
     try
@@ -410,6 +648,13 @@ T ZTMatrix<T>::trace(const ZTMatrix<T>& m) {
     }
 }
 
+/**
+ * norm : perfoms matrix to matrix norm operation
+ *
+ * @param  nothing
+ * @return T result
+ *
+ */
 template<typename T>
 T ZTMatrix<T>::norm() {
      T result = 0;
@@ -423,6 +668,13 @@ T ZTMatrix<T>::norm() {
      return std::sqrt(result);
 }
 
+/**
+ * norm : perfoms matrix to matrix norm operation
+ *
+ * @param  ZTMatrix<T> m
+ * @return T result
+ *
+ */
 template<typename T>
 T ZTMatrix<T>::norm(const ZTMatrix<T>& m) {
      T result = 0;
@@ -436,6 +688,14 @@ T ZTMatrix<T>::norm(const ZTMatrix<T>& m) {
      return std::sqrt(result);
 }
 
+/**
+ * () operator : get the matrix element given the subscripts (row, col)
+ *
+ * @param  std::size_t row_size size for initialization
+ * @param  std::size_t col_size size for initialization
+ * @return T result
+ *
+ */
 template<typename T>
 T& ZTMatrix<T>::operator()(std::size_t row_index, std::size_t col_index) {
     try
