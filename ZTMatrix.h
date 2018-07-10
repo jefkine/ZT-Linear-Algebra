@@ -27,7 +27,8 @@
 
 #include <vector>
 
-template <typename T> class ZTMatrix {
+template <typename T>
+class ZTMatrix {
 
 private:
     std::vector<std::vector<T> > matrix_data;
