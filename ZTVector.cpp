@@ -472,7 +472,7 @@ inline ZTVector<T>& ZTVector<T>::operator-=(const std::vector<T>& v)
 }
 
 /**
- * multiply : perfoms vector to scalar multiply
+ * multiply : perfoms vector to vector multiply
  *
  * @param  std::vector<T> v
  * @return std::vector<T> result
@@ -557,4 +557,17 @@ T ZTVector<T>::norm(const std::vector<T>& v)
         std::exit(0);
     }
 
+}
+
+/**
+ * norm : perfoms vector to vector norm operation
+ *
+ * @param  std::vector<T> v
+ * @return T result
+ *
+ */
+template <typename T>
+T ZTVector<T>::norm()
+{
+    return std::sqrt(ZTVector<T>::multiply(vector_data));
 }

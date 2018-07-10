@@ -27,10 +27,48 @@
 
 int main() {
 
-    std::vector<double> v1 = {1.0,2.0,3.0};
-    std::vector<double> v2 = {5.0,5.0,5.0};
+    // vector manipulations
 
-    ZTVector<double> vec(v1);
+    double scalar = 2.0;
+    double scalar_result = 0.0;
+
+    std::vector<double> x = {1.0,2.0,3.0};
+    std::vector<double> y = {5.0,6.0,7.0};
+    std::vector<double> result = {};
+
+    ZTVector<double> vec_x(x);
+
+    // perfom vector to scalar addition
+    // result = vec_x.add(scalar);
+    // result = vec_x + scalar;
+
+    // perfom vector to scalar subtraction
+    // result = vec_x.minus(scalar);
+    // result = vec_x - scalar;
+
+    // perfom vector to scalar multiplication
+    // result = vec_x.multiply(scalar);
+    // result = vec_x * scalar;
+
+    // perfom vector to vector addition
+    // result = vec_x.add(y);
+    // result = vec_x + y;
+
+    // perfom vector to vector subtraction
+    // result = vec_x.minus(y);
+    // result = vec_x - y;
+
+    // perfom vector to vector multiplication
+    // result = vec_x.multiply(y);
+    // result = vec_x * y;
+
+    // perfom vector norm
+    // scalar_result = vec_x.norm(y);
+    // scalar_result = vec_x.norm(x);  // norm with itself
+    // scalar_result = vec_x.norm();  // norm with itself
+
+    // perfom vector dot operation
+    // scalar_result = vec_x.dot(y);
 
     ZTMatrix<double> mat(3, 5, 2.2);
     ZTMatrix<double> res(3, 3, 2.0);

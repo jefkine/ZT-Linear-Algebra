@@ -74,6 +74,8 @@ public:
     ZTVector& operator =(const ZTVector<T>& v);
 
     T dot(const std::vector<T>& v); // dot product
+
+    T norm();
     T norm(const std::vector<T>& v);
 
     void valid_vector_dimensions(const std::vector<T>& v);
