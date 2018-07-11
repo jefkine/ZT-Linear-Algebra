@@ -83,11 +83,13 @@ public:
     T norm();
     T norm(const ZTMatrix<T>& m);
 
+    
+    void valid_sqaure_matrix(const ZTMatrix<T>& m) const;
+     void valid_sqaure_matrix(std::size_t rows, std::size_t cols) const;
+     
+    void valid_matrix_product(const ZTMatrix<T>& m) const;
+    void valid_matrix_add_minus(const ZTMatrix<T>& m) const;   
     void valid_subscript_dimensions(std::size_t rows, std::size_t cols) const;
-    void valid_matrix_product(const ZTMatrix<T> &m) const;
-    void valid_matrix_add_minus(const ZTMatrix<T> &m) const;
-    void valid_sqaure_matrix(const ZTMatrix<T> &m) const;
-    void valid_sqaure_matrix(std::size_t rows, std::size_t cols) const;
 
 };
 
