@@ -123,7 +123,7 @@ ZTMatrix<T> ZTMatrix<T>::minus(const T& scalar) {
         }
     }
     return result;
-    
+
 }
 
 /**
@@ -221,24 +221,24 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_multiply(const T& scalar) {
 template<typename T>
 ZTMatrix<T> ZTMatrix<T>::add(const ZTMatrix<T>& m) {
 
-  try
-  {
-    valid_matrix_add_minus(m);
-    ZTMatrix result(matrix_rows, matrix_cols, 0.0);
-    for (std::size_t i = 0; i < matrix_rows; ++i)
+    try
     {
-        for (std::size_t j = 0; j < matrix_cols; ++j)
+        valid_matrix_add_minus(m);
+        ZTMatrix result(matrix_rows, matrix_cols, 0.0);
+        for (std::size_t i = 0; i < matrix_rows; ++i)
         {
-            result.matrix_data[i][j] = matrix_data[i][j] + m.matrix_data[i][j];
+            for (std::size_t j = 0; j < matrix_cols; ++j)
+            {
+                result.matrix_data[i][j] = matrix_data[i][j] + m.matrix_data[i][j];
+            }
         }
+        return result;
     }
-    return result;
-  }
-  catch (const std::invalid_argument& e)
-  {
-      std::cerr << "Exception: " << e.what() << std::endl;
-      std::exit(0);
-  }
+    catch (const std::invalid_argument& e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+        std::exit(0);
+    }
 
 }
 
@@ -252,24 +252,24 @@ ZTMatrix<T> ZTMatrix<T>::add(const ZTMatrix<T>& m) {
 template<typename T>
 ZTMatrix<T> ZTMatrix<T>::minus(const ZTMatrix<T>& m) {
 
-  try
-  {
-    valid_matrix_add_minus(m);
-    ZTMatrix result(matrix_rows, matrix_cols, 0.0);
-    for (std::size_t i = 0; i < matrix_rows; ++i)
+    try
     {
-        for (std::size_t j = 0; j < matrix_cols; ++j)
+        valid_matrix_add_minus(m);
+        ZTMatrix result(matrix_rows, matrix_cols, 0.0);
+        for (std::size_t i = 0; i < matrix_rows; ++i)
         {
-            result.matrix_data[i][j] = matrix_data[i][j] - m.matrix_data[i][j];
+            for (std::size_t j = 0; j < matrix_cols; ++j)
+            {
+                result.matrix_data[i][j] = matrix_data[i][j] - m.matrix_data[i][j];
+            }
         }
+        return result;
     }
-    return result;
-  }
-  catch (const std::invalid_argument& e)
-  {
-      std::cerr << "Exception: " << e.what() << std::endl;
-      std::exit(0);
-  }
+    catch (const std::invalid_argument& e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+        std::exit(0);
+    }
 
 }
 
@@ -314,23 +314,23 @@ ZTMatrix<T> ZTMatrix<T>::multiply(const ZTMatrix<T>& m) {
 template<typename T>
 ZTMatrix<T>& ZTMatrix<T>::cummulative_add(const ZTMatrix<T>& m) {
 
-  try
-  {
-    valid_matrix_add_minus(m);
-    for (std::size_t i = 0; i < matrix_rows; ++i)
+    try
     {
-        for (std::size_t j = 0; j < matrix_cols; ++j)
+        valid_matrix_add_minus(m);
+        for (std::size_t i = 0; i < matrix_rows; ++i)
         {
-            matrix_data[i][j] += m.matrix_data[i][j];
+            for (std::size_t j = 0; j < matrix_cols; ++j)
+            {
+                matrix_data[i][j] += m.matrix_data[i][j];
+            }
         }
+        return *this;
     }
-    return *this;
-  }
-  catch (const std::invalid_argument& e)
-  {
-      std::cerr << "Exception: " << e.what() << std::endl;
-      std::exit(0);
-  }
+    catch (const std::invalid_argument& e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+        std::exit(0);
+    }
 
 }
 
@@ -344,23 +344,23 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_add(const ZTMatrix<T>& m) {
 template<typename T>
 ZTMatrix<T>& ZTMatrix<T>::cummulative_minus(const ZTMatrix<T>& m) {
 
-  try
-  {
-    valid_matrix_add_minus(m);
-    for (std::size_t i = 0; i < matrix_rows; ++i)
+    try
     {
-        for (std::size_t j = 0; j < matrix_cols; ++j)
+        valid_matrix_add_minus(m);
+        for (std::size_t i = 0; i < matrix_rows; ++i)
         {
-            matrix_data[i][j] -= m.matrix_data[i][j];
+            for (std::size_t j = 0; j < matrix_cols; ++j)
+            {
+                matrix_data[i][j] -= m.matrix_data[i][j];
+            }
         }
+        return *this;
     }
-    return *this;
-  }
-  catch (const std::invalid_argument& e)
-  {
-      std::cerr << "Exception: " << e.what() << std::endl;
-      std::exit(0);
-  }
+    catch (const std::invalid_argument& e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+        std::exit(0);
+    }
 
 }
 
@@ -374,23 +374,23 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_minus(const ZTMatrix<T>& m) {
 template<typename T>
 ZTMatrix<T>& ZTMatrix<T>::cummulative_multiply(const ZTMatrix<T>& m) {
 
-  try
-  {
-    valid_matrix_product(m);
-    for (std::size_t i = 0; i < matrix_rows; ++i)
+    try
     {
-        for (std::size_t j = 0; j < matrix_cols; ++j)
+        valid_matrix_product(m);
+        for (std::size_t i = 0; i < matrix_rows; ++i)
         {
-            matrix_data[i][j] *= m.matrix_data[i][j];
+            for (std::size_t j = 0; j < matrix_cols; ++j)
+            {
+                matrix_data[i][j] *= m.matrix_data[i][j];
+            }
         }
+        return *this;
     }
-    return *this;
-  }
-  catch (const std::invalid_argument& e)
-  {
-      std::cerr << "Exception: " << e.what() << std::endl;
-      std::exit(0);
-  }
+    catch (const std::invalid_argument& e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+        std::exit(0);
+    }
 
 }
 
@@ -676,21 +676,21 @@ inline void ZTMatrix<T>::valid_sqaure_matrix(std::size_t row_size, std::size_t c
 template<typename T>
 T ZTMatrix<T>::trace() {
 
-  try
-  {
-    valid_sqaure_matrix(matrix_rows, matrix_cols);
-    T result = 0;
-    for (std::size_t i = 0; i < matrix_rows; ++i)
+    try
     {
-        result +=  matrix_data[i][i];
+        valid_sqaure_matrix(matrix_rows, matrix_cols);
+        T result = 0;
+        for (std::size_t i = 0; i < matrix_rows; ++i)
+        {
+            result +=  matrix_data[i][i];
+        }
+        return result;
     }
-    return result;
-  }
-  catch (const std::invalid_argument& e)
-  {
-    std::cerr << "Exception: " << e.what() << std::endl;
-    std::exit(0);
-  }
+    catch (const std::invalid_argument& e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+        std::exit(0);
+    }
 
 }
 
@@ -706,18 +706,18 @@ T ZTMatrix<T>::trace(const ZTMatrix<T>& m) {
 
     try
     {
-      valid_sqaure_matrix(m);
-      T result = 0;
-      for (std::size_t i = 0; i < m.matrix_rows; ++i)
-      {
-          result +=  m.matrix_data[i][i];
-      }
-      return result;
+        valid_sqaure_matrix(m);
+        T result = 0;
+        for (std::size_t i = 0; i < m.matrix_rows; ++i)
+        {
+            result +=  m.matrix_data[i][i];
+        }
+        return result;
     }
     catch (const std::invalid_argument& e)
     {
-      std::cerr << "Exception: " << e.what() << std::endl;
-      std::exit(0);
+        std::cerr << "Exception: " << e.what() << std::endl;
+        std::exit(0);
     }
 
 }
@@ -779,13 +779,13 @@ T& ZTMatrix<T>::operator()(std::size_t row_index, std::size_t col_index) {
 
     try
     {
-      valid_subscript_dimensions(row_index, col_index);
-      return matrix_data[row_index - 1][col_index - 1];
+        valid_subscript_dimensions(row_index, col_index);
+        return matrix_data[row_index - 1][col_index - 1];
     }
     catch (const std::invalid_argument& e)
     {
-      std::cerr << "Exception: " << e.what() << std::endl;
-      std::exit(0);
+        std::cerr << "Exception: " << e.what() << std::endl;
+        std::exit(0);
     }
 
 }
