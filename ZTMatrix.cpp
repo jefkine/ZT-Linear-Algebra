@@ -48,7 +48,8 @@
 template <typename T>
 ZTMatrix<T>::ZTMatrix(std::size_t rows, std::size_t cols, const T& elements) : matrix_rows(rows), matrix_cols(cols) {
 
-    for (std::size_t i = 0; i < rows; i++) {
+    for (std::size_t i = 0; i < rows; i++)
+    {
         std::vector<double> matrix_rows(cols, elements);
         matrix_data.push_back(matrix_rows);
     }
@@ -90,13 +91,17 @@ ZTMatrix<T>::~ZTMatrix() {}
  */
 template<typename T>
 ZTMatrix<T> ZTMatrix<T>::add(const T& scalar) {
+
     ZTMatrix result(matrix_rows, matrix_cols, 0.0);
-    for (std::size_t i = 0; i < matrix_rows; ++i) {
-        for (std::size_t j = 0; j < matrix_cols; ++j) {
+    for (std::size_t i = 0; i < matrix_rows; ++i)
+    {
+        for (std::size_t j = 0; j < matrix_cols; ++j)
+        {
             result.matrix_data[i][j] = matrix_data[i][j] + scalar;
         }
     }
     return result;
+
 }
 
 /**
@@ -108,13 +113,17 @@ ZTMatrix<T> ZTMatrix<T>::add(const T& scalar) {
  */
 template<typename T>
 ZTMatrix<T> ZTMatrix<T>::minus(const T& scalar) {
+
     ZTMatrix result(matrix_rows, matrix_cols, 0.0);
-    for (std::size_t i = 0; i < matrix_rows; ++i) {
-        for (std::size_t j = 0; j < matrix_cols; ++j) {
+    for (std::size_t i = 0; i < matrix_rows; ++i)
+    {
+        for (std::size_t j = 0; j < matrix_cols; ++j)
+        {
             result.matrix_data[i][j] = matrix_data[i][j] - scalar;
         }
     }
     return result;
+    
 }
 
 /**
@@ -126,13 +135,17 @@ ZTMatrix<T> ZTMatrix<T>::minus(const T& scalar) {
  */
 template<typename T>
 ZTMatrix<T> ZTMatrix<T>::multiply(const T& scalar) {
+
     ZTMatrix result(matrix_rows, matrix_cols, 0.0);
-    for (std::size_t i = 0; i < matrix_rows; ++i) {
-        for (std::size_t j = 0; j < matrix_cols; ++j) {
+    for (std::size_t i = 0; i < matrix_rows; ++i)
+    {
+        for (std::size_t j = 0; j < matrix_cols; ++j)
+        {
             result.matrix_data[i][j] = matrix_data[i][j] * scalar;
         }
     }
     return result;
+
 }
 
 /**
@@ -144,8 +157,11 @@ ZTMatrix<T> ZTMatrix<T>::multiply(const T& scalar) {
  */
 template<typename T>
 ZTMatrix<T>& ZTMatrix<T>::cummulative_add(const T& scalar) {
-    for (std::size_t i = 0; i < matrix_rows; ++i) {
-        for (std::size_t j = 0; j < matrix_cols; ++j) {
+
+    for (std::size_t i = 0; i < matrix_rows; ++i)
+    {
+        for (std::size_t j = 0; j < matrix_cols; ++j)
+        {
             matrix_data[i][j] += scalar;
         }
     }
@@ -162,8 +178,11 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_add(const T& scalar) {
  */
 template<typename T>
 ZTMatrix<T>& ZTMatrix<T>::cummulative_minus(const T& scalar) {
-    for (std::size_t i = 0; i < matrix_rows; ++i) {
-        for (std::size_t j = 0; j < matrix_cols; ++j) {
+
+    for (std::size_t i = 0; i < matrix_rows; ++i)
+    {
+        for (std::size_t j = 0; j < matrix_cols; ++j)
+        {
             matrix_data[i][j] -= scalar;
         }
     }
@@ -180,8 +199,11 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_minus(const T& scalar) {
  */
 template<typename T>
 ZTMatrix<T>& ZTMatrix<T>::cummulative_multiply(const T& scalar) {
-    for (std::size_t i = 0; i < matrix_rows; ++i) {
-        for (std::size_t j = 0; j < matrix_cols; ++j) {
+
+    for (std::size_t i = 0; i < matrix_rows; ++i)
+    {
+        for (std::size_t j = 0; j < matrix_cols; ++j)
+        {
             matrix_data[i][j] *= scalar;
         }
     }
@@ -198,12 +220,15 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_multiply(const T& scalar) {
  */
 template<typename T>
 ZTMatrix<T> ZTMatrix<T>::add(const ZTMatrix<T>& m) {
+
   try
   {
     valid_matrix_add_minus(m);
     ZTMatrix result(matrix_rows, matrix_cols, 0.0);
-    for (std::size_t i = 0; i < matrix_rows; ++i) {
-        for (std::size_t j = 0; j < matrix_cols; ++j) {
+    for (std::size_t i = 0; i < matrix_rows; ++i)
+    {
+        for (std::size_t j = 0; j < matrix_cols; ++j)
+        {
             result.matrix_data[i][j] = matrix_data[i][j] + m.matrix_data[i][j];
         }
     }
@@ -214,6 +239,7 @@ ZTMatrix<T> ZTMatrix<T>::add(const ZTMatrix<T>& m) {
       std::cerr << "Exception: " << e.what() << std::endl;
       std::exit(0);
   }
+
 }
 
 /**
@@ -230,8 +256,10 @@ ZTMatrix<T> ZTMatrix<T>::minus(const ZTMatrix<T>& m) {
   {
     valid_matrix_add_minus(m);
     ZTMatrix result(matrix_rows, matrix_cols, 0.0);
-    for (std::size_t i = 0; i < matrix_rows; ++i) {
-        for (std::size_t j = 0; j < matrix_cols; ++j) {
+    for (std::size_t i = 0; i < matrix_rows; ++i)
+    {
+        for (std::size_t j = 0; j < matrix_cols; ++j)
+        {
             result.matrix_data[i][j] = matrix_data[i][j] - m.matrix_data[i][j];
         }
     }
@@ -289,8 +317,10 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_add(const ZTMatrix<T>& m) {
   try
   {
     valid_matrix_add_minus(m);
-    for (std::size_t i = 0; i < matrix_rows; ++i) {
-        for (std::size_t j = 0; j < matrix_cols; ++j) {
+    for (std::size_t i = 0; i < matrix_rows; ++i)
+    {
+        for (std::size_t j = 0; j < matrix_cols; ++j)
+        {
             matrix_data[i][j] += m.matrix_data[i][j];
         }
     }
@@ -317,8 +347,10 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_minus(const ZTMatrix<T>& m) {
   try
   {
     valid_matrix_add_minus(m);
-    for (std::size_t i = 0; i < matrix_rows; ++i) {
-        for (std::size_t j = 0; j < matrix_cols; ++j) {
+    for (std::size_t i = 0; i < matrix_rows; ++i)
+    {
+        for (std::size_t j = 0; j < matrix_cols; ++j)
+        {
             matrix_data[i][j] -= m.matrix_data[i][j];
         }
     }
@@ -345,8 +377,10 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_multiply(const ZTMatrix<T>& m) {
   try
   {
     valid_matrix_product(m);
-    for (std::size_t i = 0; i < matrix_rows; ++i) {
-        for (std::size_t j = 0; j < matrix_cols; ++j) {
+    for (std::size_t i = 0; i < matrix_rows; ++i)
+    {
+        for (std::size_t j = 0; j < matrix_cols; ++j)
+        {
             matrix_data[i][j] *= m.matrix_data[i][j];
         }
     }
@@ -368,7 +402,9 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_multiply(const ZTMatrix<T>& m) {
  */
 template <typename T>
 inline ZTMatrix<T> ZTMatrix<T>::operator+(const T& scalar) {
+
     return ZTMatrix<T>::add(scalar);
+
 }
 
 /**
@@ -379,7 +415,9 @@ inline ZTMatrix<T> ZTMatrix<T>::operator+(const T& scalar) {
  */
 template <typename T>
 inline ZTMatrix<T> ZTMatrix<T>::operator-(const T& scalar) {
+
     return ZTMatrix<T>::minus(scalar);
+
 }
 
 /**
@@ -390,7 +428,9 @@ inline ZTMatrix<T> ZTMatrix<T>::operator-(const T& scalar) {
  */
 template <typename T>
 inline ZTMatrix<T> ZTMatrix<T>::operator*(const T& scalar) {
+
     return ZTMatrix<T>::multiply(scalar);
+
 }
 
 /**
@@ -401,7 +441,9 @@ inline ZTMatrix<T> ZTMatrix<T>::operator*(const T& scalar) {
  */
 template <typename T>
 inline ZTMatrix<T>& ZTMatrix<T>::operator+=(const T& scalar) {
+
     return ZTMatrix<T>::cummulative_add(scalar);
+
 }
 
 /**
@@ -412,7 +454,9 @@ inline ZTMatrix<T>& ZTMatrix<T>::operator+=(const T& scalar) {
  */
 template <typename T>
 inline ZTMatrix<T>& ZTMatrix<T>::operator-=(const T& scalar) {
+
     return ZTMatrix<T>::cummulative_minus(scalar);
+
 }
 
 /**
@@ -423,7 +467,9 @@ inline ZTMatrix<T>& ZTMatrix<T>::operator-=(const T& scalar) {
  */
 template <typename T>
 ZTMatrix<T>& ZTMatrix<T>::operator*=(const T& scalar) {
+
     return ZTMatrix<T>::cummulative_multiply(scalar);
+
 }
 
 /**
@@ -434,7 +480,9 @@ ZTMatrix<T>& ZTMatrix<T>::operator*=(const T& scalar) {
  */
 template <typename T>
 inline ZTMatrix<T> ZTMatrix<T>::operator+(const ZTMatrix<T>& m) {
+
     return ZTMatrix<T>::add(m);
+
 }
 
 /**
@@ -445,7 +493,9 @@ inline ZTMatrix<T> ZTMatrix<T>::operator+(const ZTMatrix<T>& m) {
  */
 template <typename T>
 inline ZTMatrix<T> ZTMatrix<T>::operator-(const ZTMatrix<T>& m) {
+
     return ZTMatrix<T>::minus(m);
+
 }
 
 /**
@@ -456,7 +506,9 @@ inline ZTMatrix<T> ZTMatrix<T>::operator-(const ZTMatrix<T>& m) {
  */
 template <typename T>
 inline ZTMatrix<T> ZTMatrix<T>::operator*(const ZTMatrix<T>& m) {
+
     return ZTMatrix<T>::multiply(m);
+
 }
 
 /**
@@ -467,7 +519,9 @@ inline ZTMatrix<T> ZTMatrix<T>::operator*(const ZTMatrix<T>& m) {
  */
 template <typename T>
 inline ZTMatrix<T>& ZTMatrix<T>::operator+=(const ZTMatrix<T>& m) {
+
     return ZTMatrix<T>::cummulative_add(m);
+
 }
 
 /**
@@ -478,7 +532,9 @@ inline ZTMatrix<T>& ZTMatrix<T>::operator+=(const ZTMatrix<T>& m) {
  */
 template <typename T>
 inline ZTMatrix<T>& ZTMatrix<T>::operator-=(const ZTMatrix<T>& m) {
+
     return ZTMatrix<T>::cummulative_minus(m);
+
 }
 
 /**
@@ -489,7 +545,9 @@ inline ZTMatrix<T>& ZTMatrix<T>::operator-=(const ZTMatrix<T>& m) {
  */
 template <typename T>
 inline ZTMatrix<T>& ZTMatrix<T>::operator*=(const ZTMatrix<T>& m) {
+
     return ZTMatrix<T>::cummulative_multiply(m);
+
 }
 
 /**
@@ -501,6 +559,7 @@ inline ZTMatrix<T>& ZTMatrix<T>::operator*=(const ZTMatrix<T>& m) {
  */
 template <typename T>
 inline ZTMatrix<T>& ZTMatrix<T>::operator=(const ZTMatrix<T>& m) {
+
     if (&m != this)
     {
         matrix_data = m.matrix_data;
@@ -508,6 +567,7 @@ inline ZTMatrix<T>& ZTMatrix<T>::operator=(const ZTMatrix<T>& m) {
         matrix_cols = m.matrix_cols;
     }
     return *this;
+
 }
 
 /**
@@ -519,12 +579,14 @@ inline ZTMatrix<T>& ZTMatrix<T>::operator=(const ZTMatrix<T>& m) {
  */
 template<typename T>
 inline void ZTMatrix<T>::valid_subscript_dimensions(std::size_t row_index, std::size_t col_index) const {
+
     if (row_index > matrix_rows || row_index < 1 || col_index > matrix_cols || col_index < 1)
     {
       std::ostringstream invalid_dimensions;
       invalid_dimensions << "Matrix subscripts " << row_index << " and " << col_index << " out of range!.";
       throw std::invalid_argument(invalid_dimensions.str());
     }
+
 }
 
 /**
@@ -535,13 +597,15 @@ inline void ZTMatrix<T>::valid_subscript_dimensions(std::size_t row_index, std::
  *
  */
 template<typename T>
-inline void ZTMatrix<T>::valid_matrix_product(const ZTMatrix<T> &m)  const{
+inline void ZTMatrix<T>::valid_matrix_product(const ZTMatrix<T> &m) const {
+
     if (matrix_cols != m.matrix_rows)
     {
       std::ostringstream invalid_dimensions;
       invalid_dimensions << "Matrices of dimensions: "<<matrix_rows<<"x"<<matrix_cols<<" and "<<m.matrix_rows<<"x"<< m.matrix_cols<<" are not suitable for matrix product!.";
       throw std::invalid_argument(invalid_dimensions.str());
     }
+
 }
 
 /**
@@ -553,12 +617,14 @@ inline void ZTMatrix<T>::valid_matrix_product(const ZTMatrix<T> &m)  const{
  */
 template<typename T>
 inline void ZTMatrix<T>::valid_matrix_add_minus(const ZTMatrix<T>& m) const {
+
     if (matrix_cols != m.matrix_cols && matrix_rows != m.matrix_rows)
     {
       std::ostringstream invalid_dimensions;
       invalid_dimensions << "Matrices of dimensions: "<<matrix_rows<<"x"<<matrix_cols<<" and "<< m.matrix_rows<<"x"<< m.matrix_cols<<" are not suitable for matrix add or minus!.";
       throw std::invalid_argument(invalid_dimensions.str());
     }
+
 }
 
 /**
@@ -569,13 +635,15 @@ inline void ZTMatrix<T>::valid_matrix_add_minus(const ZTMatrix<T>& m) const {
  *
  */
 template<typename T>
-inline void ZTMatrix<T>::valid_sqaure_matrix(const ZTMatrix<T> &m)  const{
+inline void ZTMatrix<T>::valid_sqaure_matrix(const ZTMatrix<T> &m) const {
+
     if (m.matrix_cols != m.matrix_rows)
     {
       std::ostringstream invalid_dimensions;
       invalid_dimensions << "Matrices of dimensions: "<<m.matrix_rows<<"x"<<m.matrix_cols<<" is not a sqaure matrix!.";
       throw std::invalid_argument(invalid_dimensions.str());
     }
+
 }
 
 /**
@@ -587,13 +655,15 @@ inline void ZTMatrix<T>::valid_sqaure_matrix(const ZTMatrix<T> &m)  const{
  *
  */
 template<typename T>
-inline void ZTMatrix<T>::valid_sqaure_matrix(std::size_t row_size, std::size_t col_size)  const{
+inline void ZTMatrix<T>::valid_sqaure_matrix(std::size_t row_size, std::size_t col_size) const {
+
     if (row_size != col_size)
     {
       std::ostringstream invalid_dimensions;
       invalid_dimensions << "Matrices of dimensions: "<<row_size<<"x"<<col_size<<" is not a sqaure matrix!.";
       throw std::invalid_argument(invalid_dimensions.str());
     }
+
 }
 
 /**
@@ -605,6 +675,7 @@ inline void ZTMatrix<T>::valid_sqaure_matrix(std::size_t row_size, std::size_t c
  */
 template<typename T>
 T ZTMatrix<T>::trace() {
+
   try
   {
     valid_sqaure_matrix(matrix_rows, matrix_cols);
@@ -620,6 +691,7 @@ T ZTMatrix<T>::trace() {
     std::cerr << "Exception: " << e.what() << std::endl;
     std::exit(0);
   }
+
 }
 
 /**
@@ -631,6 +703,7 @@ T ZTMatrix<T>::trace() {
  */
 template<typename T>
 T ZTMatrix<T>::trace(const ZTMatrix<T>& m) {
+
     try
     {
       valid_sqaure_matrix(m);
@@ -646,6 +719,7 @@ T ZTMatrix<T>::trace(const ZTMatrix<T>& m) {
       std::cerr << "Exception: " << e.what() << std::endl;
       std::exit(0);
     }
+
 }
 
 /**
@@ -657,6 +731,7 @@ T ZTMatrix<T>::trace(const ZTMatrix<T>& m) {
  */
 template<typename T>
 T ZTMatrix<T>::norm() {
+
      T result = 0;
      for (std::size_t i = 0; i < matrix_rows; ++i)
      {
@@ -665,7 +740,8 @@ T ZTMatrix<T>::norm() {
             result += std::pow(matrix_data[i][j], 2);
         }
     }
-     return std::sqrt(result);
+    return std::sqrt(result);
+
 }
 
 /**
@@ -677,6 +753,7 @@ T ZTMatrix<T>::norm() {
  */
 template<typename T>
 T ZTMatrix<T>::norm(const ZTMatrix<T>& m) {
+
      T result = 0;
      for (std::size_t i = 0; i < m.matrix_rows; ++i)
      {
@@ -685,7 +762,8 @@ T ZTMatrix<T>::norm(const ZTMatrix<T>& m) {
             result += std::pow(m.matrix_data[i][j], 2);
         }
     }
-     return std::sqrt(result);
+    return std::sqrt(result);
+
 }
 
 /**
@@ -698,6 +776,7 @@ T ZTMatrix<T>::norm(const ZTMatrix<T>& m) {
  */
 template<typename T>
 T& ZTMatrix<T>::operator()(std::size_t row_index, std::size_t col_index) {
+
     try
     {
       valid_subscript_dimensions(row_index, col_index);
