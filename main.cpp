@@ -32,12 +32,14 @@ int main() {
 
   // Vector Operations
 
-  std::vector<double> x = {1.0,2.0,3.0};
+  std::vector<double> x = {1.2,2.2,3.2};
   std::vector<double> y = {5.0,6.0,7.0};
-  std::vector<double> vec_result;
+  std::vector<double> result;
 
   // get ZTVector vector object
   ZTVector<double> vec_x(x);
+  ZTVector<double> vec_y(y);
+  ZTVector<double> vec_result(result);
 
   // perfom vector to scalar addition
   // vec_result = vec_x.add(scalar);
@@ -60,8 +62,8 @@ int main() {
   // vec_result = vec_x - y;
 
   // perfom vector to vector multiplication
-  // vec_result = vec_x.multiply(y);
-  // vec_result = vec_x * y;
+  // scalar_result = vec_x.multiply(y);
+  // scalar_result = vec_x  * y;
 
   // perfom vector norm
   // scalar_result = vec_x.norm(y);

@@ -42,37 +42,40 @@ public:
     std::vector<T> get_vector_data();
     void set_vector_data(const std::vector<T>& v);
 
-    std::vector<T> add(const T& scalar);
-    std::vector<T> minus(const T& scalar);
-    std::vector<T> multiply(const T& scalar);
+    std::size_t get_vector_size();
+    void set_vector_size(const std::size_t size);
 
-    ZTVector& cummulative_add(const T& scalar);
-    ZTVector& cummulative_minus(const T& scalar);
-    ZTVector& cummulative_multiply(const T& scalar);
+    ZTVector<T> add(const T& scalar);
+    ZTVector<T> minus(const T& scalar);
+    ZTVector<T> multiply(const T& scalar);
 
-    std::vector<T> add(const std::vector<T>& v);
-    std::vector<T> minus(const std::vector<T>& v);
+    ZTVector<T>& cummulative_add(const T& scalar);
+    ZTVector<T>& cummulative_minus(const T& scalar);
+    ZTVector<T>& cummulative_multiply(const T& scalar);
+
+    ZTVector<T> add(const std::vector<T>& v);
+    ZTVector<T> minus(const std::vector<T>& v);
     T multiply(const std::vector<T>& v);
 
-    ZTVector& cummulative_add(const std::vector<T>& v);
-    ZTVector& cummulative_minus(const std::vector<T>& v);
+    ZTVector<T>& cummulative_add(const std::vector<T>& v);
+    ZTVector<T>& cummulative_minus(const std::vector<T>& v);
 
-    std::vector<T> operator +(const T& scalar);
-    std::vector<T> operator -(const T& scalar);
-    T operator *(const T &scalar);
+    ZTVector<T> operator +(const T& scalar);
+    ZTVector<T> operator -(const T& scalar);
+    ZTVector<T> operator *(const T &scalar);
 
-    ZTVector& operator +=(const T& scalar);
-    ZTVector& operator -=(const T& scalar);
-    ZTVector& operator *=(const T& scalar);
+    ZTVector<T>& operator +=(const T& scalar);
+    ZTVector<T>& operator -=(const T& scalar);
+    ZTVector<T>& operator *=(const T& scalar);
 
-    std::vector<T> operator +(const std::vector<T>& v);
-    std::vector<T> operator -(const std::vector<T>& v);
+    ZTVector<T> operator +(const std::vector<T>& v);
+    ZTVector<T> operator -(const std::vector<T>& v);
     T operator *(const std::vector<T>& v);
 
-    ZTVector& operator +=(const std::vector<T>& v);
-    ZTVector& operator -=(const std::vector<T>& v);
+    ZTVector<T>& operator +=(const std::vector<T>& v);
+    ZTVector<T>& operator -=(const std::vector<T>& v);
 
-    ZTVector& operator =(const ZTVector<T>& v);
+    ZTVector<T>& operator =(const ZTVector<T>& v);
 
     T dot(const std::vector<T>& v); // dot product
 
