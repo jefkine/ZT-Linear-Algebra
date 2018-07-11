@@ -571,97 +571,25 @@ inline ZTMatrix<T>& ZTMatrix<T>::operator=(const ZTMatrix<T>& m) {
 }
 
 /**
- * valid_subscript_dimensions : checks for valid matrix subscript dimensions
- *
- * @param  ZTMatrix<T> v
- * @return void
- *
- */
-template<typename T>
-inline void ZTMatrix<T>::valid_subscript_dimensions(std::size_t row_index, std::size_t col_index) const {
-
-    if (row_index > matrix_rows || row_index < 1 || col_index > matrix_cols || col_index < 1)
-    {
-      std::ostringstream invalid_dimensions;
-      invalid_dimensions << "Matrix subscripts " << row_index << " and " << col_index << " out of range!.";
-      throw std::invalid_argument(invalid_dimensions.str());
-    }
-
-}
-
-/**
- * valid_matrix_product : checks for dimensions valid matrix product
- *
- * @param  ZTMatrix<T> v
- * @return void
- *
- */
-template<typename T>
-inline void ZTMatrix<T>::valid_matrix_product(const ZTMatrix<T> &m) const {
-
-    if (matrix_cols != m.matrix_rows)
-    {
-      std::ostringstream invalid_dimensions;
-      invalid_dimensions << "Matrices of dimensions: "<<matrix_rows<<"x"<<matrix_cols<<" and "<<m.matrix_rows<<"x"<< m.matrix_cols<<" are not suitable for matrix product!.";
-      throw std::invalid_argument(invalid_dimensions.str());
-    }
-
-}
-
-/**
- * valid_matrix_add_minus : checks for dimensions valid matrix addition or subtraction
- *
- * @param  ZTMatrix<T> v
- * @return void
- *
- */
-template<typename T>
-inline void ZTMatrix<T>::valid_matrix_add_minus(const ZTMatrix<T>& m) const {
-
-    if (matrix_cols != m.matrix_cols && matrix_rows != m.matrix_rows)
-    {
-      std::ostringstream invalid_dimensions;
-      invalid_dimensions << "Matrices of dimensions: "<<matrix_rows<<"x"<<matrix_cols<<" and "<< m.matrix_rows<<"x"<< m.matrix_cols<<" are not suitable for matrix add or minus!.";
-      throw std::invalid_argument(invalid_dimensions.str());
-    }
-
-}
-
-/**
- * valid_sqaure_matrix : checks for valid sqaure matrix dimensions
- *
- * @param  ZTMatrix<T> v
- * @return void
- *
- */
-template<typename T>
-inline void ZTMatrix<T>::valid_sqaure_matrix(const ZTMatrix<T> &m) const {
-
-    if (m.matrix_cols != m.matrix_rows)
-    {
-      std::ostringstream invalid_dimensions;
-      invalid_dimensions << "Matrices of dimensions: "<<m.matrix_rows<<"x"<<m.matrix_cols<<" is not a sqaure matrix!.";
-      throw std::invalid_argument(invalid_dimensions.str());
-    }
-
-}
-
-/**
- * valid_sqaure_matrix : checks for valid sqaure matrix dimensions
+ * () operator : get the matrix element given the subscripts (row, col)
  *
  * @param  std::size_t row_size size for initialization
  * @param  std::size_t col_size size for initialization
- * @return void
+ * @return T result
  *
  */
 template<typename T>
-inline void ZTMatrix<T>::valid_sqaure_matrix(std::size_t row_size, std::size_t col_size) const {
+T& ZTMatrix<T>::operator()(std::size_t row_index, std::size_t col_index) {
 
-    if (row_size != col_size)
+    try
     {
-      std::ostringstream invalid_dimensions;
-      invalid_dimensions << "Matrices of dimensions: "<<row_size<<"x"<<col_size<<" is not a sqaure matrix!.";
-      throw std::invalid_argument(invalid_dimensions.str());
+        valid_subscript_dimensions(row_index, col_index);
+        return matrix_data[row_index - 1][col_index - 1];
+    }
+    catch (const std::invalid_argument& e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+        std::exit(0);
     }
 
 }
@@ -767,25 +695,98 @@ T ZTMatrix<T>::norm(const ZTMatrix<T>& m) {
 }
 
 /**
- * () operator : get the matrix element given the subscripts (row, col)
+ * valid_sqaure_matrix : checks for valid sqaure matrix dimensions
  *
- * @param  std::size_t row_size size for initialization
- * @param  std::size_t col_size size for initialization
- * @return T result
+ * @param  ZTMatrix<T> v
+ * @return void
  *
  */
 template<typename T>
-T& ZTMatrix<T>::operator()(std::size_t row_index, std::size_t col_index) {
+inline void ZTMatrix<T>::valid_sqaure_matrix(const ZTMatrix<T> &m) const {
 
-    try
+    if (m.matrix_cols != m.matrix_rows)
     {
-        valid_subscript_dimensions(row_index, col_index);
-        return matrix_data[row_index - 1][col_index - 1];
-    }
-    catch (const std::invalid_argument& e)
-    {
-        std::cerr << "Exception: " << e.what() << std::endl;
-        std::exit(0);
+      std::ostringstream invalid_dimensions;
+      invalid_dimensions << "Matrices of dimensions: "<<m.matrix_rows<<"x"<<m.matrix_cols<<" is not a sqaure matrix!.";
+      throw std::invalid_argument(invalid_dimensions.str());
     }
 
 }
+
+/**
+ * valid_sqaure_matrix : checks for valid sqaure matrix dimensions
+ *
+ * @param  std::size_t row_size size for initialization
+ * @param  std::size_t col_size size for initialization
+ * @return void
+ *
+ */
+template<typename T>
+inline void ZTMatrix<T>::valid_sqaure_matrix(std::size_t row_size, std::size_t col_size) const {
+
+    if (row_size != col_size)
+    {
+      std::ostringstream invalid_dimensions;
+      invalid_dimensions << "Matrices of dimensions: "<<row_size<<"x"<<col_size<<" is not a sqaure matrix!.";
+      throw std::invalid_argument(invalid_dimensions.str());
+    }
+
+}
+
+/**
+ * valid_matrix_product : checks for dimensions valid matrix product
+ *
+ * @param  ZTMatrix<T> v
+ * @return void
+ *
+ */
+template<typename T>
+inline void ZTMatrix<T>::valid_matrix_product(const ZTMatrix<T> &m) const {
+
+    if (matrix_cols != m.matrix_rows)
+    {
+      std::ostringstream invalid_dimensions;
+      invalid_dimensions << "Matrices of dimensions: "<<matrix_rows<<"x"<<matrix_cols<<" and "<<m.matrix_rows<<"x"<< m.matrix_cols<<" are not suitable for matrix product!.";
+      throw std::invalid_argument(invalid_dimensions.str());
+    }
+
+}
+
+/**
+ * valid_matrix_add_minus : checks for dimensions valid matrix addition or subtraction
+ *
+ * @param  ZTMatrix<T> v
+ * @return void
+ *
+ */
+template<typename T>
+inline void ZTMatrix<T>::valid_matrix_add_minus(const ZTMatrix<T>& m) const {
+
+    if (matrix_cols != m.matrix_cols && matrix_rows != m.matrix_rows)
+    {
+      std::ostringstream invalid_dimensions;
+      invalid_dimensions << "Matrices of dimensions: "<<matrix_rows<<"x"<<matrix_cols<<" and "<< m.matrix_rows<<"x"<< m.matrix_cols<<" are not suitable for matrix add or minus!.";
+      throw std::invalid_argument(invalid_dimensions.str());
+    }
+
+}
+
+/**
+ * valid_subscript_dimensions : checks for valid matrix subscript dimensions
+ *
+ * @param  ZTMatrix<T> v
+ * @return void
+ *
+ */
+template<typename T>
+inline void ZTMatrix<T>::valid_subscript_dimensions(std::size_t row_index, std::size_t col_index) const {
+
+    if (row_index > matrix_rows || row_index < 1 || col_index > matrix_cols || col_index < 1)
+    {
+      std::ostringstream invalid_dimensions;
+      invalid_dimensions << "Matrix subscripts " << row_index << " and " << col_index << " out of range!.";
+      throw std::invalid_argument(invalid_dimensions.str());
+    }
+
+}
+
