@@ -165,8 +165,8 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_add(const T& scalar) {
             matrix_data[i][j] += scalar;
         }
     }
-
     return *this;
+    
 }
 
 /**
@@ -186,8 +186,8 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_minus(const T& scalar) {
             matrix_data[i][j] -= scalar;
         }
     }
-
     return *this;
+    
 }
 
 /**
@@ -207,8 +207,8 @@ ZTMatrix<T>& ZTMatrix<T>::cummulative_multiply(const T& scalar) {
             matrix_data[i][j] *= scalar;
         }
     }
-
     return *this;
+    
 }
 
 /**
