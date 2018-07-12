@@ -174,7 +174,6 @@ ZTVector<T>& ZTVector<T>::cummulative_add(const T& scalar) {
     {
         vector_data[i] += scalar;
     }
-
     return *this;
 
 }
@@ -238,7 +237,6 @@ ZTVector<T>& ZTVector<T>::cummulative_minus(const T& scalar) {
     {
         vector_data[i] -= scalar;
     }
-
     return *this;
 
 }
