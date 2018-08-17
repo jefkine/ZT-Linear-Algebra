@@ -41,7 +41,8 @@
  *
  */
 template<typename T>
-ZTVector<T>::ZTVector(const std::vector<T>& v) : vector_data(v) {}
+ZTVector<T>::ZTVector(const std::vector<T>& v) : vector_data(v) {
+}
 
 /**
  * Copy Constructor
@@ -51,7 +52,8 @@ ZTVector<T>::ZTVector(const std::vector<T>& v) : vector_data(v) {}
  *
  */
 template<typename T>
-ZTVector<T>::ZTVector(const ZTVector<T>& cp) : vector_data(cp.vector_data) {}
+ZTVector<T>::ZTVector(const ZTVector<T>& cp) : vector_data(cp.vector_data) {
+}
 
 /**
  * Destructor
@@ -61,7 +63,8 @@ ZTVector<T>::ZTVector(const ZTVector<T>& cp) : vector_data(cp.vector_data) {}
  *
  */
 template<typename T>
-ZTVector<T>::~ZTVector() {}
+ZTVector<T>::~ZTVector() {
+}
 
 /**
  * Getter : ZTVector::vector_data  getter method
@@ -71,10 +74,9 @@ ZTVector<T>::~ZTVector() {}
  *
  */
 template<typename T>
-std::vector<T> ZTVector<T>::get_vector_data()
-{
+std::vector<T> ZTVector<T>::get_vector_data() {
 
-  return vector_data;
+    return vector_data;
 
 }
 
@@ -86,10 +88,9 @@ std::vector<T> ZTVector<T>::get_vector_data()
  *
  */
 template<typename T>
-void ZTVector<T>::set_vector_data(const std::vector<T>& v)
-{
+void ZTVector<T>::set_vector_data(const std::vector<T>& v) {
 
-  vector_data = v;
+    vector_data = v;
 
 }
 
@@ -101,10 +102,9 @@ void ZTVector<T>::set_vector_data(const std::vector<T>& v)
  *
  */
 template<typename T>
-std::size_t ZTVector<T>::get_vector_size()
-{
+std::size_t ZTVector<T>::get_vector_size() {
 
-  return vector_size;
+    return vector_size;
 
 }
 
@@ -116,10 +116,9 @@ std::size_t ZTVector<T>::get_vector_size()
  *
  */
 template<typename T>
-void ZTVector<T>::set_vector_size(const std::size_t size)
-{
+void ZTVector<T>::set_vector_size(const std::size_t size) {
 
-  vector_data.resize(size);
+    vector_data.resize(size);
 
 }
 
@@ -131,14 +130,12 @@ void ZTVector<T>::set_vector_size(const std::size_t size)
  *
  */
 template<typename T>
-ZTVector<T>& ZTVector<T>::operator=(const ZTVector<T>& v)
-{
+ZTVector<T>& ZTVector<T>::operator=(const ZTVector<T>& v) {
 
-  if (this != &v)
-  {
-      vector_data = v.vector_data;
-  }
-  return *this;
+    if (this != &v) {
+        vector_data = v.vector_data;
+    }
+    return *this;
 
 }
 
@@ -150,15 +147,13 @@ ZTVector<T>& ZTVector<T>::operator=(const ZTVector<T>& v)
  *
  */
 template<typename T>
-ZTVector<T> ZTVector<T>::add(const T& scalar)
-{
+ZTVector<T> ZTVector<T>::add(const T& scalar) {
 
-  ZTVector<T> result(std::vector<T> (vector_size, 0)); // initialize with a zero-valued vector of size vector_size
-  for (int i=0; i<vector_size; ++i)
-  {
-      result.vector_data[i] = vector_data[i] + scalar;
-  }
-  return result;
+    ZTVector<T> result(std::vector<T> (vector_size, 0)); // initialize with a zero-valued vector of size vector_size
+    for (int i = 0; i < vector_size; ++i) {
+        result.vector_data[i] = vector_data[i] + scalar;
+    }
+    return result;
 
 }
 
@@ -170,14 +165,12 @@ ZTVector<T> ZTVector<T>::add(const T& scalar)
  *
  */
 template<typename T>
-ZTVector<T>& ZTVector<T>::cummulative_add(const T& scalar)
-{
+ZTVector<T>& ZTVector<T>::cummulative_add(const T& scalar) {
 
-  for (int i=0; i<vector_size; ++i)
-  {
-      vector_data[i] += scalar;
-  }
-  return *this;
+    for (int i = 0; i < vector_size; ++i) {
+        vector_data[i] += scalar;
+    }
+    return *this;
 
 }
 
@@ -188,10 +181,9 @@ ZTVector<T>& ZTVector<T>::cummulative_add(const T& scalar)
  *
  */
 template <typename T>
-inline ZTVector<T> ZTVector<T>::operator+(const T& scalar)
-{
+inline ZTVector<T> ZTVector<T>::operator+(const T& scalar) {
 
-  return ZTVector<T>::add(scalar);
+    return ZTVector<T>::add(scalar);
 
 }
 
@@ -202,10 +194,9 @@ inline ZTVector<T> ZTVector<T>::operator+(const T& scalar)
  *
  */
 template <typename T>
-inline ZTVector<T>& ZTVector<T>::operator+=(const T &scalar)
-{
+inline ZTVector<T>& ZTVector<T>::operator+=(const T &scalar) {
 
-  return ZTVector<T>::cummulative_add(scalar);
+    return ZTVector<T>::cummulative_add(scalar);
 
 }
 
@@ -217,15 +208,13 @@ inline ZTVector<T>& ZTVector<T>::operator+=(const T &scalar)
  *
  */
 template<typename T>
-ZTVector<T> ZTVector<T>::minus(const T& scalar)
-{
+ZTVector<T> ZTVector<T>::minus(const T& scalar) {
 
-  ZTVector<T> result(std::vector<T> (vector_size, 0)); // initialize with a zero-valued vector of size vector_size
-  for (int i=0; i<vector_size; ++i)
-  {
-      result.vector_data[i] = vector_data[i] - scalar;
-  }
-  return result;
+    ZTVector<T> result(std::vector<T> (vector_size, 0)); // initialize with a zero-valued vector of size vector_size
+    for (int i = 0; i < vector_size; ++i) {
+        result.vector_data[i] = vector_data[i] - scalar;
+    }
+    return result;
 
 }
 
@@ -237,14 +226,12 @@ ZTVector<T> ZTVector<T>::minus(const T& scalar)
  *
  */
 template<typename T>
-ZTVector<T>& ZTVector<T>::cummulative_minus(const T& scalar)
-{
+ZTVector<T>& ZTVector<T>::cummulative_minus(const T& scalar) {
 
-  for (int i=0; i<vector_size; ++i)
-  {
-      vector_data[i] -= scalar;
-  }
-  return *this;
+    for (int i = 0; i < vector_size; ++i) {
+        vector_data[i] -= scalar;
+    }
+    return *this;
 
 }
 
@@ -255,10 +242,9 @@ ZTVector<T>& ZTVector<T>::cummulative_minus(const T& scalar)
  *
  */
 template <typename T>
-inline ZTVector<T> ZTVector<T>::operator-(const T& scalar)
-{
+inline ZTVector<T> ZTVector<T>::operator-(const T& scalar) {
 
-  return ZTVector<T>::minus(scalar);
+    return ZTVector<T>::minus(scalar);
 
 }
 
@@ -269,10 +255,9 @@ inline ZTVector<T> ZTVector<T>::operator-(const T& scalar)
  *
  */
 template <typename T>
-inline ZTVector<T>& ZTVector<T>::operator-=(const T& scalar)
-{
+inline ZTVector<T>& ZTVector<T>::operator-=(const T& scalar) {
 
-  return ZTVector<T>::cummulative_minus(scalar);
+    return ZTVector<T>::cummulative_minus(scalar);
 
 }
 
@@ -284,15 +269,13 @@ inline ZTVector<T>& ZTVector<T>::operator-=(const T& scalar)
  *
  */
 template<typename T>
-ZTVector<T> ZTVector<T>::multiply(const T& scalar)
-{
+ZTVector<T> ZTVector<T>::multiply(const T& scalar) {
 
-  ZTVector<T> result(std::vector<T> (vector_size, 0)); // initialize with a zero-valued vector of size vector_size
-  for (int i=0; i<vector_size; ++i)
-  {
-    result.vector_data[i] = vector_data[i] * scalar;
-  }
-  return result;
+    ZTVector<T> result(std::vector<T> (vector_size, 0)); // initialize with a zero-valued vector of size vector_size
+    for (int i = 0; i < vector_size; ++i) {
+        result.vector_data[i] = vector_data[i] * scalar;
+    }
+    return result;
 
 }
 
@@ -304,14 +287,12 @@ ZTVector<T> ZTVector<T>::multiply(const T& scalar)
  *
  */
 template<typename T>
-ZTVector<T>& ZTVector<T>::cummulative_multiply(const T& scalar)
-{
+ZTVector<T>& ZTVector<T>::cummulative_multiply(const T& scalar) {
 
-  for (int i=0; i<vector_size; ++i)
-  {
-    vector_data[i] *= scalar;
-  }
-  return *this;
+    for (int i = 0; i < vector_size; ++i) {
+        vector_data[i] *= scalar;
+    }
+    return *this;
 
 }
 
@@ -322,10 +303,9 @@ ZTVector<T>& ZTVector<T>::cummulative_multiply(const T& scalar)
  *
  */
 template <typename T>
-inline ZTVector<T> ZTVector<T>::operator*(const T& scalar)
-{
+inline ZTVector<T> ZTVector<T>::operator*(const T& scalar) {
 
-  return ZTVector<T>::multiply(scalar);
+    return ZTVector<T>::multiply(scalar);
 
 }
 
@@ -336,10 +316,9 @@ inline ZTVector<T> ZTVector<T>::operator*(const T& scalar)
  *
  */
 template <typename T>
-inline ZTVector<T>& ZTVector<T>::operator*=(const T& scalar)
-{
+inline ZTVector<T>& ZTVector<T>::operator*=(const T& scalar) {
 
-  return ZTVector<T>::cummulative_multiply(scalar);
+    return ZTVector<T>::cummulative_multiply(scalar);
 
 }
 
@@ -351,23 +330,18 @@ inline ZTVector<T>& ZTVector<T>::operator*=(const T& scalar)
  *
  */
 template<typename T>
-ZTVector<T> ZTVector<T>::add(const std::vector<T>& v)
-{
+ZTVector<T> ZTVector<T>::add(const std::vector<T>& v) {
 
-    try
-    {
-      valid_vector_dimensions(v);
-      ZTVector<T> result(std::vector<T> (vector_size, 0)); // initialize with a zero-valued vector of size vector_size
-      for (int i=0; i<vector_size; ++i)
-      {
-        result.vector_data[i] = vector_data[i] + v[i];
-      }
-      return result;
-    }
-    catch(const std::invalid_argument& e)
-    {
-      std::cerr << "Exception: " <<  e.what() << std::endl;
-      std::exit(0);
+    try {
+        valid_vector_dimensions(v);
+        ZTVector<T> result(std::vector<T> (vector_size, 0)); // initialize with a zero-valued vector of size vector_size
+        for (int i = 0; i < vector_size; ++i) {
+            result.vector_data[i] = vector_data[i] + v[i];
+        }
+        return result;
+    }    catch (const std::invalid_argument& e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+        std::exit(0);
     }
 
 }
@@ -380,23 +354,18 @@ ZTVector<T> ZTVector<T>::add(const std::vector<T>& v)
  *
  */
 template<typename T>
-ZTVector<T>& ZTVector<T>::cummulative_add(const std::vector<T>& v)
-{
+ZTVector<T>& ZTVector<T>::cummulative_add(const std::vector<T>& v) {
 
-  try
-  {
-    valid_vector_dimensions(v);
-    for (int i=0; i<vector_size; ++i)
-    {
-      vector_data[i] += v[i];
+    try {
+        valid_vector_dimensions(v);
+        for (int i = 0; i < vector_size; ++i) {
+            vector_data[i] += v[i];
+        }
+        return *this;
+    } catch (const std::invalid_argument& e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+        std::exit(0);
     }
-    return *this;
-  }
-  catch(const std::invalid_argument& e)
-  {
-    std::cerr << "Exception: " <<  e.what() << std::endl;
-    std::exit(0);
-  }
 
 }
 
@@ -406,10 +375,9 @@ ZTVector<T>& ZTVector<T>::cummulative_add(const std::vector<T>& v)
  * @param  std::vector<T> v
  */
 template <typename T>
-inline ZTVector<T> ZTVector<T>::operator+(const std::vector<T>& v)
-{
+inline ZTVector<T> ZTVector<T>::operator+(const std::vector<T>& v) {
 
-  return ZTVector<T>::add(v);
+    return ZTVector<T>::add(v);
 
 }
 
@@ -420,10 +388,9 @@ inline ZTVector<T> ZTVector<T>::operator+(const std::vector<T>& v)
  *
  */
 template <typename T>
-inline ZTVector<T>& ZTVector<T>::operator+=(const std::vector<T>& v)
-{
+inline ZTVector<T>& ZTVector<T>::operator+=(const std::vector<T>& v) {
 
-  return ZTVector<T>::cummulative_add(v);
+    return ZTVector<T>::cummulative_add(v);
 
 }
 
@@ -435,24 +402,19 @@ inline ZTVector<T>& ZTVector<T>::operator+=(const std::vector<T>& v)
  *
  */
 template<typename T>
-ZTVector<T> ZTVector<T>::minus(const std::vector<T>& v)
-{
+ZTVector<T> ZTVector<T>::minus(const std::vector<T>& v) {
 
-  try
-  {
-    valid_vector_dimensions(v);
-    ZTVector<T> result(std::vector<T> (vector_size, 0)); // initialize with a zero-valued vector of size vector_size
-    for (int i=0; i<vector_size; ++i)
-    {
-      result.vector_data[i] = vector_data[i] - v[i];
+    try {
+        valid_vector_dimensions(v);
+        ZTVector<T> result(std::vector<T> (vector_size, 0)); // initialize with a zero-valued vector of size vector_size
+        for (int i = 0; i < vector_size; ++i) {
+            result.vector_data[i] = vector_data[i] - v[i];
+        }
+        return result;
+    } catch (const std::invalid_argument& e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+        std::exit(0);
     }
-    return result;
-  }
-  catch(const std::invalid_argument& e)
-  {
-    std::cerr << "Exception: " <<  e.what() << std::endl;
-    std::exit(0);
-  }
 
 }
 
@@ -464,23 +426,18 @@ ZTVector<T> ZTVector<T>::minus(const std::vector<T>& v)
  *
  */
 template<typename T>
-ZTVector<T>& ZTVector<T>::cummulative_minus(const std::vector<T>& v)
-{
+ZTVector<T>& ZTVector<T>::cummulative_minus(const std::vector<T>& v) {
 
-  try
-  {
-    valid_vector_dimensions(v);
-    for (int i=0; i<vector_size; ++i)
-    {
-      vector_data[i] -= v[i];
+    try {
+        valid_vector_dimensions(v);
+        for (int i = 0; i < vector_size; ++i) {
+            vector_data[i] -= v[i];
+        }
+        return *this;
+    } catch (const std::invalid_argument& e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+        std::exit(0);
     }
-    return *this;
-  }
-  catch(const std::invalid_argument& e)
-  {
-    std::cerr << "Exception: " <<  e.what() << std::endl;
-    std::exit(0);
-  }
 
 }
 
@@ -491,10 +448,9 @@ ZTVector<T>& ZTVector<T>::cummulative_minus(const std::vector<T>& v)
  *
  */
 template <typename T>
-inline ZTVector<T> ZTVector<T>::operator-(const std::vector<T>& v)
-{
+inline ZTVector<T> ZTVector<T>::operator-(const std::vector<T>& v) {
 
-  return ZTVector<T>::minus(v);
+    return ZTVector<T>::minus(v);
 
 }
 
@@ -505,10 +461,9 @@ inline ZTVector<T> ZTVector<T>::operator-(const std::vector<T>& v)
  *
  */
 template <typename T>
-inline ZTVector<T>& ZTVector<T>::operator-=(const std::vector<T>& v)
-{
+inline ZTVector<T>& ZTVector<T>::operator-=(const std::vector<T>& v) {
 
-  return ZTVector<T>::cummulative_add(v);
+    return ZTVector<T>::cummulative_add(v);
 
 }
 
@@ -520,24 +475,19 @@ inline ZTVector<T>& ZTVector<T>::operator-=(const std::vector<T>& v)
  *
  */
 template<typename T>
-T ZTVector<T>::multiply(const std::vector<T>& v)
-{
+T ZTVector<T>::multiply(const std::vector<T>& v) {
 
-  try
-  {
-    valid_vector_dimensions(v);
-    T result = 0;
-    for (int i=0; i<vector_size; ++i)
-    {
-      result += vector_data[i] * v[i];
+    try {
+        valid_vector_dimensions(v);
+        T result = 0;
+        for (int i = 0; i < vector_size; ++i) {
+            result += vector_data[i] * v[i];
+        }
+        return result;
+    } catch (const std::invalid_argument& e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+        std::exit(0);
     }
-    return result;
-  }
-  catch(const std::invalid_argument& e)
-  {
-    std::cerr << "Exception: " <<  e.what() << std::endl;
-    std::exit(0);
-  }
 
 }
 
@@ -548,10 +498,9 @@ T ZTVector<T>::multiply(const std::vector<T>& v)
  *
  */
 template <typename T>
-inline T ZTVector<T>::operator*(const std::vector<T>& v)
-{
+inline T ZTVector<T>::operator*(const std::vector<T>& v) {
 
-  return ZTVector<T>::multiply(v);
+    return ZTVector<T>::multiply(v);
 
 }
 
@@ -563,19 +512,15 @@ inline T ZTVector<T>::operator*(const std::vector<T>& v)
  *
  */
 template <typename T>
-T ZTVector<T>::dot(const std::vector<T>& v)
-{
+T ZTVector<T>::dot(const std::vector<T>& v) {
 
-  try
-  {
-    valid_vector_dimensions(v);
-    return std::inner_product(vector_data.begin(), vector_data.end(), v.begin(), 0);
-  }
-  catch(const std::invalid_argument& e)
-  {
-    std::cerr << "Exception: " <<  e.what() << std::endl;
-    std::exit(0);
-  }
+    try {
+        valid_vector_dimensions(v);
+        return std::inner_product(vector_data.begin(), vector_data.end(), v.begin(), 0);
+    } catch (const std::invalid_argument& e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+        std::exit(0);
+    }
 
 }
 
@@ -587,19 +532,15 @@ T ZTVector<T>::dot(const std::vector<T>& v)
  *
  */
 template <typename T>
-T ZTVector<T>::norm(const std::vector<T>& v)
-{
+T ZTVector<T>::norm(const std::vector<T>& v) {
 
-  try
-  {
-    valid_vector_dimensions(v);
-    return std::sqrt(ZTVector<T>::multiply(v));
-  }
-  catch(const std::invalid_argument& e)
-  {
-    std::cerr << "Exception: " <<  e.what() << std::endl;
-    std::exit(0);
-  }
+    try {
+        valid_vector_dimensions(v);
+        return std::sqrt(ZTVector<T>::multiply(v));
+    } catch (const std::invalid_argument& e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+        std::exit(0);
+    }
 
 }
 
@@ -611,10 +552,9 @@ T ZTVector<T>::norm(const std::vector<T>& v)
  *
  */
 template <typename T>
-T ZTVector<T>::norm()
-{
+T ZTVector<T>::norm() {
 
-  return std::sqrt(ZTVector<T>::multiply(vector_data));
+    return std::sqrt(ZTVector<T>::multiply(vector_data));
 
 }
 
@@ -626,14 +566,12 @@ T ZTVector<T>::norm()
  *
  */
 template<typename T>
-void ZTVector<T>::valid_vector_dimensions(const std::vector<T>& v)
-{
+void ZTVector<T>::valid_vector_dimensions(const std::vector<T>& v) {
 
-  if (vector_data.size() != v.size())
-  {
-    std::ostringstream invalid_dimensions;
-    invalid_dimensions << "vector sizes " << vector_data.size() << " and " << v.size() <<" do not match!.";
-    throw std::invalid_argument(invalid_dimensions.str());
-  }
+    if (vector_data.size() != v.size()) {
+        std::ostringstream invalid_dimensions;
+        invalid_dimensions << "vector sizes " << vector_data.size() << " and " << v.size() << " do not match!.";
+        throw std::invalid_argument(invalid_dimensions.str());
+    }
 
 }
