@@ -42,6 +42,7 @@
  */
 template<typename T>
 ZTVector<T>::ZTVector(const std::vector<T>& v) : vector_data(v) {
+
 }
 
 /**
@@ -53,6 +54,7 @@ ZTVector<T>::ZTVector(const std::vector<T>& v) : vector_data(v) {
  */
 template<typename T>
 ZTVector<T>::ZTVector(const ZTVector<T>& cp) : vector_data(cp.vector_data) {
+
 }
 
 /**
@@ -64,6 +66,7 @@ ZTVector<T>::ZTVector(const ZTVector<T>& cp) : vector_data(cp.vector_data) {
  */
 template<typename T>
 ZTVector<T>::~ZTVector() {
+
 }
 
 /**

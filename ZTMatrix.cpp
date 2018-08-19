@@ -80,6 +80,7 @@ ZTMatrix<T>::ZTMatrix(const ZTMatrix<T>& cp) :
  */
 template<typename T>
 ZTMatrix<T>::~ZTMatrix() {
+  
 }
 
 /**
